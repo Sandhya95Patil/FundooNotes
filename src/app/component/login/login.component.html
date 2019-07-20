@@ -1,0 +1,50 @@
+
+<div fxFlex="100" fxLayoutAlign="center center">
+                <mat-card fxFlex="100">
+
+                                <div class="column" fxLayout="column">
+                                <form [formGroup] = "loginForm" fxLayout="column" (ngSubmit) = "onClickSubmit(loginForm.value)" >
+                                        <p class="title">
+                                            <span class="f">F</span>
+                                            <span class="u">U</span>
+                                            <span class="n">N</span>
+                                            <span class="d">D</span>
+                                            <span class="o">O</span>
+                                            <span class="o1">O</span>
+                                        </p>
+                                        <p class="signin" >Sign in</p>
+                                <div fxLayout="column" >
+                                        <mat-form-field  [style.font-size.px]="12" appearance="outline">
+                                          <mat-label>Email</mat-label>
+                                          <input matInput type = "text" class = "email" name = "email" placeholder = "email" 
+                                          formControlName="email"> 
+                                          <mat-error *ngFor="let validation of account_validation_messages.email">
+                                              <mat-error class="error-message" *ngIf="loginForm.get('email').hasError(validation.type) && (loginForm.get('email').dirty || loginForm.get('email').touched)">{{validation.message}}</mat-error>
+                                          </mat-error>
+                                          <!-- <mat-hint>Enter email address</mat-hint> -->
+                                        </mat-form-field>
+                                </div>
+                                      <div fxLayout="column" >
+                                            <mat-form-field [style.font-size.px]="12" appearance="outline">
+                                              <mat-label>Password</mat-label>
+                                              <input matInput  type = "text" class = "password" name = "password" placeholder = "Enter password" 
+                                                formControlName="password">
+                                                <mat-error *ngFor="let validation of account_validation_messages.password">
+                                                    <mat-error class="error-message" *ngIf="loginForm.get('password').hasError(validation.type) && (loginForm.get('password').dirty || loginForm.get('password').touched)">{{validation.message}}</mat-error>
+                                                    </mat-error>
+                                                <!-- <mat-hint>Enter password</mat-hint> -->
+                                            </mat-form-field>
+                                        </div>
+                                        <div fxFlex="row"  fxFlex="45">
+                                        <button mat-button fxLayoutAlign="start center" (click)="GotoForget()" >Forget Password??</button>
+                                        </div>
+                                        <div fxLayout="row" fxLayout.xs="50%" fxLayout.xs="column" fxLayoutAlign="space-between center">
+                                                <div fxFlex="row"  fxFlex="40" fxLayoutAlign="start center" >
+                                                <button mat-button >Create an account</button>
+                                                </div>
+                                                <button mat-button  mat-flat-button [color]="'success'" >Login</button>
+                                                </div>
+                            </form>                  
+                        </div>
+                        </mat-card>
+</div>

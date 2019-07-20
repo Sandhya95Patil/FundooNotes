@@ -1,0 +1,29 @@
+
+<div fxFlex="100" fxLayoutAlign="center center">
+                <mat-card>
+                                <div class="row" fxLayout="column">
+                                 <form [formGroup] = "forgetform" fxLayout="column" (ngSubmit) = "onClickSubmit(forgetform.value)" >
+                                        <p class="title">
+                                            <span class="f">F</span>
+                                            <span class="u">U</span>
+                                            <span class="n">N</span>
+                                            <span class="d">D</span>
+                                            <span class="o">O</span>
+                                            <span class="o1">O</span>
+                                        </p>
+                                        <p class="find" >Find Your Email</p>
+                                <div fxLayout="row" >
+                                        <mat-form-field [style.font-size.px]="10" appearance="outline">
+                                          <mat-label>Email</mat-label>
+                                          <input matInput type = "text" class = "email" name = "email" placeholder = "email" 
+                                          formControlName="email"> 
+                                          <mat-hint>Enter register email address</mat-hint>
+                                        </mat-form-field><br>
+                                </div>
+                                <div fxLayout="row" fxLayout.xs="50%">
+                                        <button class="next" mat-button  mat-flat-button [color]="'success'" (click)="gotoreset()">Next</button>
+                                        </div>
+                                </form>
+                                </div>
+                                </mat-card>
+</div>
