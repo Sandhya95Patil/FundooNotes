@@ -60,7 +60,7 @@
                                     <mat-form-field [style.font-size.px]="12" fxFlex="100" appearance="outline">
                                       <mat-label>Conform</mat-label>
                                       <input matInput type = "text" class = "cpassword" name = "cpassword"  
-                                      formControlName="cpassword" [errorStateMatcher]="matcher" placeholder="Conform your password" [type]="hide ? 'password' : 'text'">
+                                      formControlName="cpassword"  placeholder="Conform your password" [type]="hide ? 'password' : 'text'">
                                       <mat-error *ngIf="RegisterForm.hasError('notSame')">
                                         Passwords do not match
                                     </mat-error>  
@@ -78,7 +78,7 @@
                     <button mat-button  (click)="gotologin()" >Sign in instead</button>
                     </div>
                     <div >
-                    <button mat-button fxFlex style="background:#0149ce" >Register</button>
+                    <button mat-button fxFlex style="background:blue" >Register</button>
                     </div>
                     </div>
                 </form>
