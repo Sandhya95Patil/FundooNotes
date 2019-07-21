@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators} from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-
+import { User } from '../../model/UserRegister';
+import { UserService } from '../../services/user service/user.service'
 
 @Component({
   selector: 'app-registration',
@@ -9,43 +10,61 @@ import { Router } from '@angular/router';
   styleUrls: ['./registration.component.scss']
 })
 export class RegistrationComponent implements OnInit {
-  RegisterForm;
-  FirstName;
-  LastName;
-  emailid;
-  password;
-  cpassword;
-  constructor(private router: Router) {
-   }
-   gotologin(){
+  public registerForm: FormGroup
+  constructor(private router: Router, private userService: UserService) {
+  }
+  gotologin() {
     this.router.navigate(['/login']);  // define your component where you want to go
-};
+  };
 
   ngOnInit() {
-this.RegisterForm=new FormGroup({
-  FirstName: new FormControl('', [Validators.required, Validators.minLength(3)]) ,
-  LastName: new FormControl('',[Validators.required,Validators.minLength(3)]),
-  emailid: new FormControl ('',[Validators.required,Validators.email]),
-  password: new FormControl('',[Validators.required,Validators.minLength(6)]),
-  cpassword  :new FormControl('',[Validators.required,Validators.minLength(6)])  
-});   
-}
-account_validation_messages = {
-  'emailid': [
-    { type: 'required', message: 'Email is required' },
-    { type: 'email', message: 'Enter a valid email' }
-  ],
-  'password': [
-    { type: 'required', message: 'Password is required' },
-    { type: 'minlength', message: 'Password must be at least 6 characters long' },
-  ],
-  'cpassword': [
-    { type: 'required', message: 'Confirm password is required' },
-    { type: 'minlength', message: 'Password must be at least 6 characters long' }
-  ],
-}
+    this.registerForm = new FormGroup({
+      firstName: new FormControl('', [Validators.required, Validators.minLength(3)]),
+      lastName: new FormControl('', [Validators.required, Validators.minLength(3)]),
+      emailid: new FormControl('', [Validators.required, Validators.email]),
+      password: new FormControl('', [Validators.required, Validators.minLength(6)]),
+      cpassword: new FormControl('', [Validators.required, Validators.minLength(6)])
+    });
+  }
+  message = {
+    'firstName':[
+      { type:'required',message:'First name is required'}
+    ],
+    'lastName':[
+      { type:'required',message:'Last name is required'}
+    ],  
+    'emailid': [
+      { type: 'required', message: 'Email is required' },
+      { type: 'email', message: 'Enter a valid email' }
+    ],
+    'password': [
+      { type: 'required', message: 'Password is required' },
+      { type: 'minlength', message: 'Password must be at least 6 characters long' },
+    ],
+    'cpassword': [
+      { type: 'required', message: 'Confirm password is required' },
+      { type: 'minlength', message: 'Password must be at least 6 characters long' }
+    ],
+  }
+  onClickSubmit(value) {
+    let user: User = {
+      firstName: value.firstName,
+      lastName: value.lastName,
+      email: value.emailid,
+      password: value.password,
+      service: 'advance'
+    }
+    console.log(" user created", user);
 
-onClickSubmit(value) {this.FirstName = value.FirstName;this.LastName = value.LastName;this.
-  emailid = value.emailid; this. password = value. password;this.cpassword=value.cpassword;}
+    this.userService.register(user).subscribe(response => {
+      console.log(" reponse ", response);
+
+    }, error => {
+      console.log(error);
+
+    }
+    )
+
+  }
 
 }

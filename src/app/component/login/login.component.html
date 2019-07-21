@@ -1,6 +1,5 @@
-
 <div fxFlex="100" fxLayoutAlign="center center">
-                <mat-card fxFlex="100">
+                <mat-card fxFlex="50">
 
                                 <div class="column" fxLayout="column">
                                 <form [formGroup] = "loginForm" fxLayout="column" (ngSubmit) = "onClickSubmit(loginForm.value)" >
@@ -16,23 +15,23 @@
                                 <div fxLayout="column" >
                                         <mat-form-field  [style.font-size.px]="12" appearance="outline">
                                           <mat-label>Email</mat-label>
-                                          <input matInput type = "text" class = "email" name = "email" placeholder = "email" 
+                                          <input matInput type = "text" placeholder = "email" 
                                           formControlName="email"> 
-                                          <mat-error *ngFor="let validation of account_validation_messages.email">
-                                              <mat-error class="error-message" *ngIf="loginForm.get('email').hasError(validation.type) && (loginForm.get('email').dirty || loginForm.get('email').touched)">{{validation.message}}</mat-error>
+                                          <mat-error *ngFor="let validation of message.email">
+                                              <mat-error *ngIf="loginForm.get('email').hasError(validation.type) && (loginForm.get('email').dirty || loginForm.get('email').touched)">{{validation.message}}</mat-error>
                                           </mat-error>
-                                          <!-- <mat-hint>Enter email address</mat-hint> -->
+                                          <mat-hint>Enter email address</mat-hint>
                                         </mat-form-field>
                                 </div>
                                       <div fxLayout="column" >
                                             <mat-form-field [style.font-size.px]="12" appearance="outline">
                                               <mat-label>Password</mat-label>
-                                              <input matInput  type = "text" class = "password" name = "password" placeholder = "Enter password" 
+                                              <input matInput  type = "text"  placeholder = "Enter password" 
                                                 formControlName="password">
-                                                <mat-error *ngFor="let validation of account_validation_messages.password">
-                                                    <mat-error class="error-message" *ngIf="loginForm.get('password').hasError(validation.type) && (loginForm.get('password').dirty || loginForm.get('password').touched)">{{validation.message}}</mat-error>
+                                                <mat-error *ngFor="let validation of message.password">
+                                                    <mat-error *ngIf="loginForm.get('password').hasError(validation.type) && (loginForm.get('password').dirty || loginForm.get('password').touched)">{{validation.message}}</mat-error>
                                                     </mat-error>
-                                                <!-- <mat-hint>Enter password</mat-hint> -->
+                                                <mat-hint>Enter password</mat-hint>
                                             </mat-form-field>
                                         </div>
                                         <div fxFlex="row"  fxFlex="45">
@@ -42,7 +41,8 @@
                                                 <div fxFlex="row"  fxFlex="40" fxLayoutAlign="start center" >
                                                 <button mat-button >Create an account</button>
                                                 </div>
-                                                <button mat-button  mat-flat-button [color]="'success'" >Login</button>
+                                                <div fxFlex="row" fxFlex="40" >
+                                                <button mat-button  fxFlex style="background:blue" >Login</button></div>
                                                 </div>
                             </form>                  
                         </div>

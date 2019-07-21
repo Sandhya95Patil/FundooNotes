@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { UserService  } from "../../services/user service/user.service";
+import { User } from "../../model/UserLogin";
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -10,7 +12,7 @@ export class LoginComponent implements OnInit {
   loginForm;
   email;
   password
-  constructor(private router: Router) { }
+  constructor(private router: Router , private userService:UserService) { }
   GotoForget(){
     this.router.navigate(['/forget']);  // define your component where you want to go
 };
@@ -20,7 +22,7 @@ export class LoginComponent implements OnInit {
     password: new FormControl('',[Validators.required,Validators.minLength(6)])
    });
   }
-  account_validation_messages = {
+  message = {
     'email': [
       { type: 'required', message: 'Email is required' },
       { type: 'email', message: 'Enter a valid email' }
@@ -31,6 +33,25 @@ export class LoginComponent implements OnInit {
     
   ]
 }
-  onClickSubmit(value) {this.email=value.email;this.password=value.password}
+  onClickSubmit(value){
+    let user:User={
+      email:value.email,
+      password:value.password,
+      service:'advance'
+    }
+    console.log(" user login", user);
 
+    this.userService.login(user).subscribe(response => {
+      console.log(" reponse ", response);
+
+    }, error => {
+      console.log(error);
+
+    }
+    )
+
+  
+  }
+
+  
 }

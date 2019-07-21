@@ -1,18 +1,25 @@
 import { Injectable } from '@angular/core';
-import {HttpserviceService  } from "../http service/httpservice.service";
+import { HttpserviceService } from "../http service/httpservice.service";
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  constructor(private httpservice:HttpserviceService) { 
-    
+  constructor(private httpservice: HttpserviceService) {
+
   }
-  login(){
-    this.httpservice.post("",{})
+
+  register(user) {
+    return this.httpservice.post('/user/userSignUp', user)
+
   }
-  register(){
-    this.httpservice.post('http://34.213.106.173/api/user/userSignUp',{})
+  login(user){
+    return this.httpservice.post('/user/login',user)
   }
+  forget(user){
+  return this.httpservice.post('/user/reset',user)
+  }
+
+
 }
 

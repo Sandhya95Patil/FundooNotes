@@ -2,7 +2,7 @@
 <div fxFlex="100" fxLayoutAlign="center center">
                 <mat-card>
                                 <div class="row" fxLayout="column">
-                                 <form [formGroup] = "forgetform" fxLayout="column" (ngSubmit) = "onClickSubmit(forgetform.value)" >
+                                 <form [formGroup] = "forgetForm" fxLayout="column" (ngSubmit) = "onClickSubmit(forgetForm.value)" >
                                         <p class="title">
                                             <span class="f">F</span>
                                             <span class="u">U</span>
@@ -13,15 +13,18 @@
                                         </p>
                                         <p class="find" >Find Your Email</p>
                                 <div fxLayout="row" >
-                                        <mat-form-field [style.font-size.px]="10" appearance="outline">
+                                        <mat-form-field [style.font-size.px]="12" appearance="outline">
                                           <mat-label>Email</mat-label>
                                           <input matInput type = "text" class = "email" name = "email" placeholder = "email" 
                                           formControlName="email"> 
+                                          <mat-error *ngFor="let validation of message.email">
+                                                <mat-error *ngIf="forgetForm.get('email').hasError(validation.type) && (forgetForm.get('email').dirty || forgetForm.get('email').touched)">{{validation.message}}</mat-error>
+                                            </mat-error>
                                           <mat-hint>Enter register email address</mat-hint>
                                         </mat-form-field><br>
                                 </div>
                                 <div fxLayout="row" fxLayout.xs="50%">
-                                        <button class="next" mat-button  mat-flat-button [color]="'success'" (click)="gotoreset()">Next</button>
+                                        <button class="next" mat-button  mat-flat-button [color]="'success'" >Next</button>
                                         </div>
                                 </form>
                                 </div>
