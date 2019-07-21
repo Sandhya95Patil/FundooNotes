@@ -2,7 +2,7 @@
         <div fxFlex="100" fxLayoutAlign="center center">
                 <mat-card>
                         <div class="column" fxLayout="column">
-                         <form [formGroup] = "resetform" fxLayout="column" (ngSubmit) = "onClickSubmit(resetform.value)" >
+                         <form [formGroup] = "resetForm" fxLayout="column" (ngSubmit) = "onClickSubmit(resetForm.value)" >
                                 <p class="title">
                                     <span class="f">F</span>
                                     <span class="u">U</span>
@@ -14,8 +14,11 @@
                         <div fxLayout="column" >
                                 <mat-form-field [style.font-size.px]="12" appearance="outline">
                                   <mat-label>Enter register email</mat-label>
-                                  <input matInput type = "text" class = "email" name = "email" placeholder = "email" 
+                                  <input matInput type = "text"  placeholder = "email" 
                                   formControlName="email"> 
+                                  <!-- <mat-error *ngFor="let validation of message.email">
+                                   <mat-error *ngIf="resetForm.get('email').hasError(validation.type) && (resetForm.get('email').dirty || resetForm.get('email').touched)">{{validation.message}}</mat-error>
+                                   </mat-error> -->
                                   <mat-hint>Enter register email address</mat-hint>
                                 </mat-form-field>
                         </div>
@@ -23,7 +26,7 @@
                         <div fxFlex="row" fxFlex="70">
                         <mat-form-field [style.font-size.px]="12" fxFlex="100" appearance="outline">
                                 <mat-label>Create new password</mat-label>
-                                <input matInput type = "text" class = "emailid" name = "emailid" placeholder="Create new password" [type]="hide ? 'password' : 'text'"  formControlName="password" >
+                                <input matInput type = "text"  placeholder="Create new password" [type]="hide ? 'password' : 'text'"  formControlName="password" >
                                 <mat-hint>Enter min 6 characters</mat-hint>
                               </mat-form-field></div>
                               <div fxFlex="row" fxFlex="30">
@@ -36,7 +39,7 @@
                                 <div fxFlex="row" fxFlex="70">
                                 <mat-form-field [style.font-size.px]="12" fxFlex="100" appearance="outline">
                                         <mat-label>Conform your password</mat-label>
-                                        <input matInput type = "text" class = "emailid" name = "emailid" placeholder="Create new password" [type]="hide ? 'password' : 'text'"   >
+                                        <input matInput type = "text"  placeholder="Create new password" [type]="hide ? 'password' : 'text'"   >
                                         <!-- <mat-hint>Enter capital, small letters & numbers</mat-hint> -->
                                       </mat-form-field></div>
                                       <div fxFlex="row" fxFlex="30">

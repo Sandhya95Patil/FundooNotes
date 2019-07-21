@@ -7,16 +7,18 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./reset.component.scss']
 })
 export class ResetComponent implements OnInit {
-  resetform;
+  resetForm;
   email;
   password
   constructor() { }
  
   ngOnInit() {
-    this.resetform= new FormGroup({
+    this.resetForm= new FormGroup({
       email:new FormControl('',[Validators.required,Validators.email]),
-      password: new FormControl('',[Validators.required,Validators.pattern("^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{6,12}$")])
+      password: new FormControl('',[Validators.required,Validators.minLength(6)])
     })
   }
-  onClickSubmit(value) {this.email=value.email;this.password=value.password;}
+  
+  onClickSubmit(value) {this.email=value.email;
+    this.password=value.password;}
 }
