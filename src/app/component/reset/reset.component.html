@@ -16,9 +16,9 @@
                                   <mat-label>Enter register email</mat-label>
                                   <input matInput type = "text"  placeholder = "email" 
                                   formControlName="email"> 
-                                  <!-- <mat-error *ngFor="let validation of message.email">
+                                  <mat-error *ngFor="let validation of message.email">
                                    <mat-error *ngIf="resetForm.get('email').hasError(validation.type) && (resetForm.get('email').dirty || resetForm.get('email').touched)">{{validation.message}}</mat-error>
-                                   </mat-error> -->
+                                   </mat-error>
                                   <mat-hint>Enter register email address</mat-hint>
                                 </mat-form-field>
                         </div>
@@ -27,6 +27,10 @@
                         <mat-form-field [style.font-size.px]="12" fxFlex="100" appearance="outline">
                                 <mat-label>Create new password</mat-label>
                                 <input matInput type = "text"  placeholder="Create new password" [type]="hide ? 'password' : 'text'"  formControlName="password" >
+                                <mat-error *ngFor="let validation of message.password">
+                               <mat-error *ngIf="resetForm.get('password').hasError(validation.type) && (resetForm.get('password').dirty || resetForm.get('password').touched)">
+                                                  {{validation.message}}</mat-error>
+                                </mat-error>
                                 <mat-hint>Enter min 6 characters</mat-hint>
                               </mat-form-field></div>
                               <div fxFlex="row" fxFlex="30">
@@ -39,9 +43,12 @@
                                 <div fxFlex="row" fxFlex="70">
                                 <mat-form-field [style.font-size.px]="12" fxFlex="100" appearance="outline">
                                         <mat-label>Conform your password</mat-label>
-                                        <input matInput type = "text"  placeholder="Create new password" [type]="hide ? 'password' : 'text'"   >
-                                        <!-- <mat-hint>Enter capital, small letters & numbers</mat-hint> -->
-                                      </mat-form-field></div>
+                                        <input matInput type = "text"  placeholder="Create new password" [type]="hide ? 'password' : 'text'"  formControlName="cpassword" >
+                                        <mat-error *ngFor="let validation of message.password">
+                                        <mat-error *ngIf="resetForm.get('cpassword').hasError(validation.type) && (resetForm.get('cpassword').dirty || resetForm.get('cpassword').touched)">
+                                                    {{validation.message}}</mat-error></mat-error><br>
+                                      </mat-form-field>
+                                </div>
                                       <div fxFlex="row" fxFlex="30">
                                       <button  fxFlex="100" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                                         <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>

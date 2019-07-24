@@ -10,11 +10,11 @@ import { User } from "../../model/Forget";
 })
 export class ForgetComponent implements OnInit {
   forgetForm;
-  email
+  
   constructor(private router: Router , private  userService:UserService ) { }
-  gotoreset(){
-    this.router.navigate(['/reset']);  // define your component where you want to go
-};
+//   gotoreset(){
+//     this.router.navigate(['/reset']);  // define your component where you want to go
+// }
   ngOnInit() {
     this.forgetForm= new FormGroup({
      email:new FormControl('',[Validators.required,Validators.email])

@@ -34,15 +34,15 @@
                                                 <mat-hint>Enter password</mat-hint>
                                             </mat-form-field>
                                         </div>
-                                        <div fxFlex="row"  fxFlex="45">
+                                        <div fxFlex="column"   fxLayoutAlign="start none" >
                                         <button mat-button fxLayoutAlign="start center" (click)="GotoForget()" >Forget Password??</button>
                                         </div>
                                         <div fxLayout="row" fxLayout.xs="50%" fxLayout.xs="column" fxLayoutAlign="space-between center">
-                                                <div fxFlex="row"  fxFlex="40" fxLayoutAlign="start center" >
+                                                <div fxFlex="row"  fxFlex="40" fxLayoutAlign="start none"  >
                                                 <button mat-button >Create an account</button>
                                                 </div>
-                                                <div fxFlex="row" fxFlex="40" >
-                                                <button mat-button  fxFlex style="background:blue" >Login</button></div>
+                                                <div fxFlex="row" fxFlex="25" >
+                                                <button mat-button  mat-flat-button [color]="'success'" >Login</button></div>
                                                 </div>
                             </form>                  
                         </div>

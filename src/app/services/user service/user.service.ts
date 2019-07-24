@@ -19,6 +19,9 @@ export class UserService {
   forget(user){
   return this.httpservice.post('/user/reset',user)
   }
+  reset(user){
+    return this.httpservice.post('/reset-password',user)
+  }
 
 
 }

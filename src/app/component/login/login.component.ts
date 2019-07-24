@@ -10,8 +10,8 @@ import { User } from "../../model/UserLogin";
 })
 export class LoginComponent implements OnInit {
   loginForm;
-  email;
-  password
+  // email;
+  // password
   constructor(private router: Router , private userService:UserService) { }
   GotoForget(){
     this.router.navigate(['/forget']);  // define your component where you want to go
@@ -43,7 +43,8 @@ export class LoginComponent implements OnInit {
 
     this.userService.login(user).subscribe(response => {
       console.log(" reponse ", response);
-
+      
+     
     }, error => {
       console.log(error);
 

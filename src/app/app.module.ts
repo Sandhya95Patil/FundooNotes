@@ -16,7 +16,12 @@ import { LoginComponent } from './component/login/login.component';
 import { ForgetComponent } from './component/forget/forget.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ResetComponent } from './component/reset/reset.component';
-
+import { DashboardComponent } from "./component/dashboard/dashboard.component";
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {  MatSelectModule } from '@angular/material';
+import { MatMenuModule} from '@angular/material/menu';
+import {MatListModule} from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -24,7 +29,8 @@ import { ResetComponent } from './component/reset/reset.component';
     RegistrationComponent,
     LoginComponent,
     ForgetComponent,
-    ResetComponent
+    ResetComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +44,12 @@ import { ResetComponent } from './component/reset/reset.component';
     MatCardModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatSelectModule,
+    MatMenuModule,
+    MatListModule
    
   ],
   providers: [],
