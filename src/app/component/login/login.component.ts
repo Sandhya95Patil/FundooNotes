@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
   // password
   constructor(private router: Router , private userService:UserService) { }
   GotoForget(){
-    this.router.navigate(['/forget']);  // define your component where you want to go
+    this.router.navigate(['/dashboard']);  // define your component where you want to go
 };
   ngOnInit() {
    this.loginForm= new FormGroup({
@@ -43,7 +43,15 @@ export class LoginComponent implements OnInit {
 
     this.userService.login(user).subscribe(response => {
       console.log(" reponse ", response);
-      
+      localStorage.setItem('token', response['id']);
+      localStorage.setItem('token', response['userid']);
+      localStorage.setItem('token', response['firstName']);
+      localStorage.setItem('token', response['lastName']);
+      localStorage.setItem('token', response['email']);
+      localStorage.setItem('token', response['password']);
+
+
+
      
     }, error => {
       console.log(error);

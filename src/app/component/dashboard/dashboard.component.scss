@@ -102,8 +102,29 @@
   font-size: 15px;
   font-style: bold;
   height: 25px;
-  width:200%;
+  width:100%;
+}
+.icon{
+  margin-right:20px;
+    height: 4rem;
+    min-width: 0;
+    line-height: 4rem;
+    padding-left: 0;
+    padding-right: 0;
+    width: 4rem; 
+}
+.gap{
+  padding-left: 2em;
+}
+.s{
+  padding-left:1em;
 }
 
-   
+.example-card {
+  max-width: 400px;
+}
 
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}

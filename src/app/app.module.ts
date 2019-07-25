@@ -22,6 +22,10 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {  MatSelectModule } from '@angular/material';
 import { MatMenuModule} from '@angular/material/menu';
 import {MatListModule} from '@angular/material/list';
+import { NotesComponent } from './component/notes/notes.component';
+import { TakeNoteComponent } from './component/take-note/take-note.component';
+import { DisplaynotesComponent } from './component/displaynotes/displaynotes.component';
+import { IconComponent } from './component/icon/icon.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +34,11 @@ import {MatListModule} from '@angular/material/list';
     LoginComponent,
     ForgetComponent,
     ResetComponent,
-    DashboardComponent
+    DashboardComponent,
+    NotesComponent,
+    TakeNoteComponent,
+    DisplaynotesComponent,
+    IconComponent
   ],
   imports: [
     BrowserModule,
