@@ -20,9 +20,11 @@ export class UserService {
   return this.httpservice.post('/user/reset',user)
   }
   reset(user){
-    return this.httpservice.post('/reset-password',user)
+    return this.httpservice.encodedPost('/reset-password',user)
   }
-
+addNote(notes){
+  return this.httpservice.encodedPost('/notes/addNotes',notes)
+}
 
 }
 

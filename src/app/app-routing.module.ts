@@ -6,15 +6,17 @@ import { ForgetComponent } from './component/forget/forget.component';
 import { ResetComponent } from './component/reset/reset.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { NotesComponent } from './component/notes/notes.component';
-
-
-
-
 const routes: Routes = [
-  {path:'',component:RegistrationComponent},
+  {
+    path:'',
+    redirectTo:'login',
+    pathMatch:'full'
+  }
+  ,
+  {path:'register',component:RegistrationComponent},
   {path:'login',component:LoginComponent},
   {path:'forget',component:ForgetComponent},
-  {path:'resetpassword',component:ResetComponent},
+  {path:'resetpassword/:token',component:ResetComponent},
   {path:'dashboard',component:DashboardComponent,
   children:[
     {
@@ -23,6 +25,11 @@ const routes: Routes = [
       pathMatch:'full'
     },
     {path:'notes',component:NotesComponent}
+   ,
+   
+
+   
+   {path:'reminder',component:NotesComponent}
 
   ]}
 ];

@@ -35,7 +35,7 @@ export class ResetComponent implements OnInit {
     const token = this.activatedRoute.snapshot.paramMap.get('token');
     localStorage.setItem('token', token)
 console.log("password is reset", );
-this.userService.register(token).subscribe(response => {
+this.userService.reset(token).subscribe(response => {
   console.log(" reponse ", response);
 }, error => {
   console.log(error);

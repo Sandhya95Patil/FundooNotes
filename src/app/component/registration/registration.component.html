@@ -1,7 +1,7 @@
 <div fxFlex="100" fxLayoutAlign="center center">
     <mat-card>
         <div fxLayout="column">
-            <form [formGroup]="registerForm" fxLayout="column" (ngSubmit)="onClickSubmit(registerForm.value)">
+            <form [formGroup]="registerForm" fxLayout="column" >
                 <p class="title">
                     <span class="f">F</span>
                     <span class="u">U</span>
@@ -84,7 +84,7 @@
                         <button mat-button (click)="gotologin()">Sign in instead</button>
                     </div>
                     <div>
-                        <button mat-button fxFlex style="background:blue">Register</button>
+                        <button mat-button fxFlex style="background:blue" (click)="onClickSubmit(registerForm.value)">Register</button>
                     </div>
                 </div>
             </form>

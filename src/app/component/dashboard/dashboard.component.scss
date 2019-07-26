@@ -98,19 +98,15 @@
   text-overflow: ellipsis;
 }
 .search{
-  text-align: left; 
-  font-size: 15px;
-  font-style: bold;
-  height: 25px;
-  width:100%;
+ text-align: initial;
+ font-family: 'Times New Roman', Times, serif;
+ 
 }
 .icon{
-  margin-right:20px;
+  margin-right: 0px;
     height: 4rem;
     min-width: 0;
     line-height: 4rem;
-    padding-left: 0;
-    padding-right: 0;
     width: 4rem; 
 }
 .gap{
@@ -119,12 +115,13 @@
 .s{
   padding-left:1em;
 }
-
-.example-card {
-  max-width: 400px;
+.bulbimage{
+  height:40px;
+  width:40px;
 }
-
-.example-header-image {
-  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-  background-size: cover;
+.color{
+  color: gray;
+}
+.toolbar{
+  color:gray;
 }

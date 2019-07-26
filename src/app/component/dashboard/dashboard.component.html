@@ -1,18 +1,19 @@
 <div class="container" fxFlex="100"  [class.example-is-mobile]="mobileQuery.matches" >
     <mat-toolbar class="toolbar">
-    <div feFlex="10">
+    <div feFlex="10" fxLayout.xs="3">
       <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>  </div>
-      <div fxFlex="5">  
+      <div fxFlex="5" >  
       <!-- <button mat-raised-button style="background:orange">  -->
-    <img src="../../../assets/icon/bulb.svg" alt=""></div>
-   <div fxFlex="15"> Fundoo</div>
-         <div fxFlex="50">
+    <img class="bulbimage" src="../../../assets/bulbimage.png" alt=""></div>
+   <div fxFlex="15" fxLayout.xs="7" class="color"> Fundoo</div>
+         <div fxFlex="50" fxLayout.xs="25">
           <input matInput placeholder="Search" class="search" autocomplete="off"></div>
         <mat-icon>search</mat-icon>
-         <div fxFlex="5"> <mat-icon>refresh</mat-icon></div>
-          <div fxFlex="5" > <mat-icon></mat-icon></div>
-          <div fxFlex="5" fxLayout.xs="hide"> <mat-icon>apps</mat-icon></div>
-         <div fxFlex="5"> <button mat-icon-button class="icon" >icon</button></div>
+         <div fxFlex="4"> <mat-icon>refresh</mat-icon></div>
+         <div fxFlex="4"><mat-icon></mat-icon></div>
+          <div fxFlex="4" > <mat-icon>settings</mat-icon></div>
+          <div fxFlex="4" fxLayout.xs="hide"> <mat-icon>apps</mat-icon></div>
+         <div fxFlex="4"> <button mat-icon-button class="icon" >icon</button></div>
     </mat-toolbar>
   
  <mat-divider></mat-divider>
@@ -38,7 +39,7 @@
               </a>
               <mat-divider></mat-divider>
                   <mat-label>Labels</mat-label>
-                  <a mat-list-item routerLink="."  >
+                  <a mat-list-item routerLink="." >
                   <img src="../../../assets//icon/editlabel.svg" alt="">
                   <span class="edit">Edit labels</span>
               </a>
@@ -55,10 +56,7 @@
           </mat-sidenav>
       
           <mat-sidenav-content>
-          
-            <!-- <h2>hello</h2> -->
-       
-       
+      
         <router-outlet></router-outlet>
           </mat-sidenav-content>
         </mat-sidenav-container>

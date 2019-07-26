@@ -44,15 +44,11 @@ export class LoginComponent implements OnInit {
     this.userService.login(user).subscribe(response => {
       console.log(" reponse ", response);
       localStorage.setItem('token', response['id']);
-      localStorage.setItem('token', response['userid']);
-      localStorage.setItem('token', response['firstName']);
-      localStorage.setItem('token', response['lastName']);
-      localStorage.setItem('token', response['email']);
-      localStorage.setItem('token', response['password']);
-
-
-
-     
+      localStorage.setItem('userId', response['userId']);
+      localStorage.setItem('firstName', response['firstName']);
+      localStorage.setItem('lastName', response['lastName']);
+      localStorage.setItem('email', response['email']);
+      
     }, error => {
       console.log(error);
 
