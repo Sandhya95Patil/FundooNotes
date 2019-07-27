@@ -13,9 +13,13 @@ export class LoginComponent implements OnInit {
   // email;
   // password
   constructor(private router: Router , private userService:UserService) { }
-  GotoForget(){
-    this.router.navigate(['/dashboard']);  // define your component where you want to go
+  gotoForget(){
+    this.router.navigate(['/forget']);  // define your component where you want to go
+    
 };
+gotoDashboard(){
+  this.router.navigate(['/dashboard']);
+}
   ngOnInit() {
    this.loginForm= new FormGroup({
     email: new FormControl('',[Validators.required,Validators.email]),

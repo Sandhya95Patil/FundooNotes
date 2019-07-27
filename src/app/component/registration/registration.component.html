@@ -84,7 +84,7 @@
                         <button mat-button (click)="gotologin()">Sign in instead</button>
                     </div>
                     <div>
-                        <button mat-button fxFlex style="background:blue" (click)="onClickSubmit(registerForm.value)">Register</button>
+                        <button mat-button fxFlex style="background:blue" [disabled]="!validate && !registerForm.valid" (click)="onClickSubmit(registerForm.value)" >Register</button>
                     </div>
                 </div>
             </form>

@@ -10,18 +10,20 @@ import { UserService } from "../../services/user service/user.service";
 export class ResetComponent implements OnInit {
   public resetForm:FormGroup
   constructor(private router :Router,private activatedRoute :ActivatedRoute, private userService: UserService) { }
- 
+  gotoLogin() {
+    this.router.navigate(['/login']);  
+  };
   ngOnInit() {
     this.resetForm= new FormGroup({
-      email:new FormControl('',[Validators.required,Validators.email]),
+      // email:new FormControl('',[Validators.required,Validators.email]),
       password: new FormControl('',[Validators.required,Validators.minLength(6)]),
       cpassword:new FormControl('',[Validators.required,Validators.minLength(6)])
     })
   }
   message={
-    'email':[{type:'required',message:'Email is required'},
-  {type:'email',message:'Enter valid email'}
-],
+//     'email':[{type:'required',message:'Email is required'},
+//   {type:'email',message:'Enter valid email'}
+// ],
 'password':[
   {type:'required',message:'Password is required'},
   {type:'minlength',message:'Password must be at least 6 characters long'}
@@ -31,9 +33,9 @@ export class ResetComponent implements OnInit {
   {type:'minlength',message:'Password must be at least 6 characters long'}
 ]
   }
-  resetPassword() {
+  onClickSubmit() {
     const token = this.activatedRoute.snapshot.paramMap.get('token');
-    localStorage.setItem('token', token)
+    // localStorage.setItem('token', token)
 console.log("password is reset", );
 this.userService.reset(token).subscribe(response => {
   console.log(" reponse ", response);

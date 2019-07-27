@@ -11,7 +11,7 @@
                                     <span class="o">O</span>
                                     <span class="o1">O</span>
                                 </p>
-                        <div fxLayout="column" >
+                        <!-- <div fxLayout="column" >
                                 <mat-form-field [style.font-size.px]="12" appearance="outline">
                                   <mat-label>Enter register email</mat-label>
                                   <input matInput type = "text"  placeholder = "email" 
@@ -21,7 +21,7 @@
                                    </mat-error>
                                   <mat-hint>Enter register email address</mat-hint>
                                 </mat-form-field>
-                        </div>
+                        </div> -->
                         <div  fxLayout="row" fxLayout.xs="50" fxLayout.xs="column" fxLayoutAlign="space-between center">
                         <div fxFlex="row" fxFlex="70">
                         <mat-form-field [style.font-size.px]="12" fxFlex="100" appearance="outline">
@@ -56,7 +56,7 @@
                                       </div>
                                 </div>
                         <div class="resetbutton" fxFlex="30">
-                        <button mat-button mat-flat-button [color]="'success'" >Reset</button>
+                        <button mat-button mat-flat-button [color]="'success'" (click)="gotoLogin()" [disabled]="!validate && !resetForm.valid">Reset</button>
                         </div>
                         </form>
                         </div>

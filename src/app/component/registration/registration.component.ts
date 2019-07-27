@@ -11,6 +11,7 @@ import { UserService } from '../../services/user service/user.service'
 })
 export class RegistrationComponent implements OnInit {
   public registerForm: FormGroup
+ 
   constructor(private router: Router, private userService: UserService) {
   }
   gotologin() {
@@ -18,6 +19,7 @@ export class RegistrationComponent implements OnInit {
   };
 
   ngOnInit() {
+   
     this.registerForm = new FormGroup({
       firstName: new FormControl('', [Validators.required, Validators.minLength(3)]),
       lastName: new FormControl('', [Validators.required, Validators.minLength(3)]),
@@ -25,6 +27,7 @@ export class RegistrationComponent implements OnInit {
       password: new FormControl('', [Validators.required, Validators.minLength(6)]),
       cpassword: new FormControl('', [Validators.required, Validators.minLength(6)])
     });
+  
   }
   message = {
     'firstName':[
