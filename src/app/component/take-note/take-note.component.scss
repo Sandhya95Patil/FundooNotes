@@ -4,6 +4,15 @@
 .card{
     padding: 4px 16px 12px 16px;
 }
+.text{
+    box-decoration-break: unset;
+}
+.input{  
+    border:0;
+    outline:0;
+    font-size: 1rem;
+    text-decoration-color: black;
+}
 
     
     

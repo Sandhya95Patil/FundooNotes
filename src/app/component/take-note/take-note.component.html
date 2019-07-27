@@ -2,9 +2,9 @@
         <form [formGroup]="addnoteForm" fxLayout="column" >
             <div fxLayout="row"  fxLayoutAlign="center center"  *ngIf="isOpen "  (click)="isOpen = !isOpen "  >
                 <div fxFlex="70">
-                        <mat-form-field class="take">
-                            <input matInput type="text"  placeholder="Take a note.." >
-                        </mat-form-field> </div> 
+                        
+                            <input matInput type="text" class="input" placeholder="Take a note.." >
+                        </div> 
                      <div fxFlex="10">
                              <mat-icon class="color">check_box</mat-icon>
                          </div>
@@ -17,15 +17,20 @@
         </div>
        
     <div *ngIf="!isOpen " >
-       <div><mat-label>Title</mat-label><br>
+      <div fxLayout="column">
+           <input matInput type="text" class="input" formControlName="title" placeholder="Title"><br>
+      </div>
 
-        <mat-form-field class="take">
-                <input matInput type="text"  formControlName="title">
-            </mat-form-field>
+  <div fxLayout="column">
+        <textarea style="border: none" placeholder="Take a note.."></textarea>
+  </div> 
     
-    </div> &nbsp;
+
+       
     
-        <div><mat-icon  class="color">access_alarms</mat-icon></div>&nbsp;
+    
+    
+      
        <div fxLayout="row">
             <div fxFlex="80">
                     <app-icon></app-icon>
