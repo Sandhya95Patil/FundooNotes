@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import {MediaMatcher} from '@angular/cdk/layout';
 import {ChangeDetectorRef, OnDestroy} from '@angular/core';
 
@@ -7,6 +7,7 @@ import {ChangeDetectorRef, OnDestroy} from '@angular/core';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
+
 
 // export class DashboardComponent implements OnInit {
 
@@ -20,6 +21,10 @@ import {ChangeDetectorRef, OnDestroy} from '@angular/core';
 
 export class DashboardComponent implements OnDestroy{
   mobileQuery: MediaQueryList;
+
+
+
+  
 
   // fillerNav = Array.from({length: 50}, (_, i) => `Nav Item ${i + 1}`);
 

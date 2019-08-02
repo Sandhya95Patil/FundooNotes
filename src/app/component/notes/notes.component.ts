@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NoteServiceService } from "../../services/noteService/note-service.service";
 
 @Component({
   selector: 'app-notes',
@@ -6,10 +7,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./notes.component.scss']
 })
 export class NotesComponent implements OnInit {
-
-  constructor() { }
+   parentMessage=[];
+   
+  constructor(private noteService:NoteServiceService) { }
 
   ngOnInit() {
+    this.getNotes();
+    console.log('getnotes')
+  }
+  getNotes(){
+   this.noteService.getNote().subscribe(response=>{
+     console.log('response',response);
+     this.parentMessage=response['data'].data
+   },error=>{
+     console.log(error);
+   })
+   }
+   
+  
   }
 
-}
+
+

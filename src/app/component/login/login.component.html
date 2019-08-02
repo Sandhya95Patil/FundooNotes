@@ -44,10 +44,10 @@
                                         </div>
                                         <div fxLayout="column" fxLayout.xs="100" fxLayout.xs="column" fxLayoutAlign="space-between center">
                                                 <div fxFlex="row"  fxFlex="40" fxLayoutAlign="start none"  >
-                                                <button mat-button >Create an account</button>
+                                                <button mat-button (click)="gotoRegister()">Create an account</button>
                                                 </div>
                                                 <div fxFlex="row" fxFlex="" >
-                                                <button mat-button  mat-flat-button [color]="'success'"  [disabled]="!validate && !loginForm.valid" (click)="gotoDashboard()" >Login</button></div>
+                                                <button mat-button  mat-flat-button [color]="'success'"  [disabled]="!validate && !loginForm.valid"  >Login</button></div>
                                                 </div>
                             </form>                  
                         </div>

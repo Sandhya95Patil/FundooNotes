@@ -26,6 +26,11 @@ import { NotesComponent } from './component/notes/notes.component';
 import { TakeNoteComponent } from './component/take-note/take-note.component';
 import { DisplaynotesComponent } from './component/displaynotes/displaynotes.component';
 import { IconComponent } from './component/icon/icon.component';
+import { UpdateComponent } from './component/update/update.component';
+import {MatDialogModule} from '@angular/material/dialog';
+//import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+
+
 
 @NgModule({
   declarations: [
@@ -38,7 +43,8 @@ import { IconComponent } from './component/icon/icon.component';
     NotesComponent,
     TakeNoteComponent,
     DisplaynotesComponent,
-    IconComponent
+    IconComponent,
+    UpdateComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +63,11 @@ import { IconComponent } from './component/icon/icon.component';
     MatToolbarModule,
     MatSelectModule,
     MatMenuModule,
-    MatListModule
+    MatListModule,
+    //MatDialog, 
+    //MatDialogRef, 
+    MatDialogModule
+   
    
   ],
   providers: [],

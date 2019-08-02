@@ -1,6 +1,25 @@
 .color{
     color:gray;
+    display: flex;
 }
 .close{
 text-align: right;
+}
+.icon{
+    display: flex; 
+}
+::ng-deep .mat-icon
+{
+    font-size: 14px;
+}
+
+
+.colorPicker
+{
+    height:25px;
+    width: 25px;
+    border-radius: 20px;
+}
+.menu{
+    padding-bottom:0.5rem;
 }

@@ -1,21 +1,42 @@
-<div fxLayout="row" fxLayoutAlign="space-between center" fxFlex="100" >
-    <div fxFlex="15">
+<div  fxLayout="row" fxLayoutAlign="space-between center" fxFlex="100" fxLayout.xs="50">
+    <div fxFlex="17" fxLayout.xs="9">
     <mat-icon class="color">add_alert</mat-icon>
 </div>
-<div fxFlex="15" >
+<div fxFlex="17" fxLayout.xs="6" >
     <mat-icon class="color">person_add</mat-icon>
 </div>
-<div fxFlex="15" >
-    <mat-icon class="color">palette</mat-icon>
-</div>
-<div fxFlex="15">
+   <!---------------------***Set-Color***-------------------------->
+   <div  fxFlex="17" fxLayout.xs="15">
+        <button class="menu"  mat-icon-button [matMenuTriggerFor]="menu">
+                <mat-icon class="color">palette</mat-icon>
+                <mat-menu #menu="matMenu">
+                       <div fxLayout ='row' fxFlex="60" *ngFor="let color of colors">
+                           <div *ngFor="let bgcolor of color">
+                               <div class="colorPicker" (click)="setcolor(color,card)" [ngStyle]="{'background-color': bgcolor.color }"></div>
+                           </div>
+                       </div>
+                   </mat-menu>
+           </button>
+   </div>
+
+<!------------------------****Photo****------------------------------->
+<div fxFlex="17" fxLayout.xs="6">
     <mat-icon class="color">photo</mat-icon>
 </div>
-<div fxFlex="15">
+<div fxFlex="17" fxLayout.xs="9">
     <mat-icon class="color">archive</mat-icon>
 </div>
-<div fxFlex="15">
+<div fxFlex="15" fxLayout.xs="5">
     <mat-icon class="color">more_vert</mat-icon>
 </div>
+
+<!-- <mat-menu #menu="matMenu">
+        <div fxLayout ='row' fxFlex="60" *ngFor="let color of colors">
+            <div *ngFor="let bgcolor of color">
+                <div class="colorPicker" (click)="setcolor(bgcolor.color)" [ngStyle]="{'background-color': bgcolor.color }"></div>
+            </div>
+        </div>
+    </mat-menu> -->
+
 
 </div>

@@ -14,10 +14,9 @@ export class RegistrationComponent implements OnInit {
  
   constructor(private router: Router, private userService: UserService) {
   }
-  gotologin() {
+  gotoLogin() {
     this.router.navigate(['/login']);  // define your component where you want to go
   };
-
   ngOnInit() {
    
     this.registerForm = new FormGroup({

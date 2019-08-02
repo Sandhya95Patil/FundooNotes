@@ -22,9 +22,7 @@ export class UserService {
   reset(user){
     return this.httpservice.encodedPost('/reset-password',user)
   }
-addNote(notes){
-  return this.httpservice.encodedPost('/notes/addNotes',notes)
-}
+
 
 }
 

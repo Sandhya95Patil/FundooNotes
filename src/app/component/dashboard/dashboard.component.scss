@@ -100,6 +100,12 @@
 .search{
  text-align: initial;
  font-family: 'Times New Roman', Times, serif;
+ border:0;
+ outline:0;
+ font-size: 1rem;
+ text-decoration-color: black;
+ width: 100%;
+ height: 46px;
  
 }
 .icon{
@@ -108,6 +114,9 @@
     min-width: 0;
     line-height: 4rem;
     width: 4rem; 
+    margin-top: 0px;
+    margin-bottom: 10px;
+    margin-left: 25px;
 }
 .gap{
   padding-left: 2em;

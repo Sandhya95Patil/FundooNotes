@@ -2,7 +2,10 @@
     color:gray;
 }
 .card{
-    padding: 4px 16px 12px 16px;
+    align-content: center;
+    justify-content: center;
+    margin-top: 1rem;
+    
 }
 .text{
     box-decoration-break: unset;
@@ -10,9 +13,22 @@
 .input{  
     border:0;
     outline:0;
-    font-size: 1rem;
+    // font-size: 1rem;
     text-decoration-color: black;
+    outline: none;
+    text-decoration-style: none;
+    font-size: 16px;
 }
-
-    
+.textarea{
+    outline: none;
+    font-size: 14px;
+}
+.close{
+    justify-content: end;
+    font-size: 1rem;
+}
+.icon{
+height: 20;
+width: 20;
+} 
     

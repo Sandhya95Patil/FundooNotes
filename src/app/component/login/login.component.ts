@@ -17,8 +17,9 @@ export class LoginComponent implements OnInit {
     this.router.navigate(['/forget']);  // define your component where you want to go
     
 };
-gotoDashboard(){
-  this.router.navigate(['/dashboard']);
+
+gotoRegister(){
+  this.router.navigate(['/register']);
 }
   ngOnInit() {
    this.loginForm= new FormGroup({
@@ -48,19 +49,19 @@ gotoDashboard(){
     this.userService.login(user).subscribe(response => {
       console.log(" reponse ", response);
       localStorage.setItem('token', response['id']);
-      localStorage.setItem('userId', response['userId']);
+      // localStorage.setItem('userId', response['userId']);
       localStorage.setItem('firstName', response['firstName']);
       localStorage.setItem('lastName', response['lastName']);
       localStorage.setItem('email', response['email']);
+       this.router.navigate(['/dashboard']);
+
       
     }, error => {
       console.log(error);
 
-    }
-    )
-
+    })
+   
   
   }
-
-  
+ 
 }

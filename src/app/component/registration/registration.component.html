@@ -81,10 +81,10 @@
                 </div>
                 <div fxLayout="row" fxLayoutAlign="space-between center">
                     <div fxFlex="row" fxFlex="45">
-                        <button mat-button (click)="gotologin()">Sign in instead</button>
+                        <button mat-button (click)="gotoLogin()">Sign in instead</button>
                     </div>
                     <div>
-                        <button mat-button fxFlex style="background:blue" [disabled]="!validate && !registerForm.valid" (click)="onClickSubmit(registerForm.value)" >Register</button>
+                        <button mat-button fxFlex style="background:blue" [disabled]="!validate && !registerForm.valid" (click)="onClickSubmit(registerForm.value)"  (click)="gotoLogin()">Register</button>
                     </div>
                 </div>
             </form>

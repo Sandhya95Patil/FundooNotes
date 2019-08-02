@@ -1,6 +1,6 @@
 export class notes{
     title:String;
-    // discryption:String;
+    description:String;
     // labelIdList:String;
     // checklist:String;
     // isPined:boolean;
@@ -8,5 +8,5 @@ export class notes{
     // color:String;
     // reminder:String;
     // collaberators:String;
-     service:String;
+    
 }

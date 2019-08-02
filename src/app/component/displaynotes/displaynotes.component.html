@@ -1,1 +1,52 @@
-<p>displaynotes works!</p>
+<div fxFlex="30" fxFlexOffset="35" class="card" fxLayout="row-wrap" fxLayoutGap="3rem">
+    <mat-card fxFlex="100">
+        <div *ngFor="let notes of getchildMessage">
+               <div (click)="openDialog(notes)">
+                    <div>
+                            {{notes.title}}
+                    </div>
+                    <div>
+                         {{notes.description}}
+                    </div>
+                    <!-- <div>
+                      <mat-icon></mat-icon>
+                    </div> -->
+                    <div>
+                     <input matInput type="text" class="dis">  
+                    </div>
+                     <div>
+                     <!-- <app-icon></app-icon> -->
+                     </div> 
+               </div>  
+               <app-icon (colorEvent)="changeColor($event)"></app-icon>
+        </div>
+    </mat-card>
+</div>
+
+
+<!-- <div  >
+        <mat-card fxFlex="50" fxLayout.xs="25" *ngFor="let notes of getchildMessage" >
+                         <div fxFlex="column">
+                                {{notes.title}}
+                        </div>
+                        <div fxFlex="column">
+                            {{note.description}}
+                        </div>
+                        <div fxFlex="20" >
+                            <mat-icon></mat-icon>
+                        </div>
+              
+            <div fxLayout="column">
+            <input matInput type="text" class="dis">  
+            </div>
+           
+            <div fxLayout="column">
+                <app-icon></app-icon>
+            </div>
+            </mat-card>
+       
+</div> -->
+
+
+<!-- {{getchildMessage|json}} -->
+

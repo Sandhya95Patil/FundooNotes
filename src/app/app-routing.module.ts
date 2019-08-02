@@ -6,6 +6,7 @@ import { ForgetComponent } from './component/forget/forget.component';
 import { ResetComponent } from './component/reset/reset.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { NotesComponent } from './component/notes/notes.component';
+import { UpdateComponent } from './component/update/update.component';
 const routes: Routes = [
   {
     path:'',
@@ -25,11 +26,8 @@ const routes: Routes = [
       redirectTo:'notes',
       pathMatch:'full'
     },
-    {path:'notes',component:NotesComponent}
-   ,
-   
-
-   
+    {path:'notes',component:NotesComponent} ,
+    {path:'update',component:UpdateComponent},
    {path:'reminder',component:NotesComponent}
 
   ]}
