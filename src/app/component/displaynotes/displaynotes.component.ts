@@ -1,6 +1,7 @@
-import { Component, OnInit, Input} from '@angular/core';
+import { Component, OnInit, Input,Output,EventEmitter} from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { UpdateComponent } from '../update/update.component';
+
 export interface DialogData {
 }
 @Component({
@@ -10,7 +11,7 @@ export interface DialogData {
 })
 export class DisplaynotesComponent implements OnInit {
   @Input() getchildMessage:any;
-
+   @Output() setcolorEvent=new EventEmitter 
   constructor(public dialog: MatDialog) {}
 
   openDialog(notes) {
@@ -26,7 +27,9 @@ export class DisplaynotesComponent implements OnInit {
   ngOnInit() {
     
   }
-  changeColor($event) {
-    this.getchildMessage = $event
+  changecolorfromchild(event) {
+    console.log('event in display',event);
+    
+   // this.setcolorEvent.emit; 
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit,Output,EventEmitter } from '@angular/core';
+import { Component, OnInit,Output,EventEmitter,Input } from '@angular/core';
 import { NoteServiceService } from '../../services/noteService/note-service.service';
 
 @Component({
@@ -7,20 +7,21 @@ import { NoteServiceService } from '../../services/noteService/note-service.serv
   styleUrls: ['./icon.component.scss']
 })
 export class IconComponent implements OnInit {
+  @Input() notesforiconchild   
   @Output() setcolorEvent = new EventEmitter();
   public colors:any=[
-   [{color:'#fff'},
-   {color:'#f28b82'},
-   {color:'#fbbc04'},
-   {color:'#fff475'}],
-  [{color:'#ccff90'},
-   {color:'#a7ffeb'},
-   {color:'#cbf0f8'},
-   {color:'#aecbfa'}],
-   [{color:'#d7aefb'},
-   {color:'#fdcfe8'},
-   {color:'#e6c9a8'},
-   {color:'#e8eaed'}]
+[{ color: '#ff6347' },
+{ color: '#7FFFD4' },
+{ color: '#F0E68C' },
+{ color: '#2E8B57' }],
+[{ color: '#FFFF00' },
+{ color: '#ADFF2F' },
+{ color: '#00FF7F' },
+{ color: '#FFDEAD' }],
+[{ color: '#8A2BE2' },
+{ color: '#663399' },
+{ color: '#00BFFF' },
+{ color: '#0000FF' }]
   ]
  
   constructor(private noteService:NoteServiceService) { }
@@ -28,21 +29,18 @@ export class IconComponent implements OnInit {
 
   } 
   
-  setcolor(color,card){
+  setcolor(color){
     console.log("color",color)
   let data={
-    color:this.color,
-    cardIdList:this.card
+    color:color.color,
+    noteIdList:[this.notesforiconchild.id]
   }
-  console.log('set color ',data)
+  console.log('set color ',data  )
   this.noteService.colorchange(data).subscribe(response=>{
     console.log('response',response)
   },error=>{
-    console.log('error')
-  }
-  )
-  this.setcolorEvent.emit(this.colors);
-
-  
+    console.log('error',error)
+  })
+  this.setcolorEvent.emit(color); 
 }
 }

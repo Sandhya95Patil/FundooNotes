@@ -1,16 +1,16 @@
- <div fxFlex="100"  fxLayout.xs="50" class="update" style="display: flex" style="border:none">
+ <div fxFlex="100"  fxLayout.xs="50" class="update">
     <mat-card>
       <div fxLayout="row" class="input">
           <input matInput [(ngModel)]=data.notes.title class="input" placeholder="Title">
       </div>
        <div fxLayout="row" class="input">
-          <textarea style="border: none" [(ngModel)]=data.notes.description ></textarea>
+          <textarea  class="input" style="border: none" [(ngModel)]=data.notes.description ></textarea>
        </div>
         <div fxLayout="row">
-          <div fxFlex="80">
+          <div fxFlex="70">
               <app-icon></app-icon>
           </div>
-          <div flex="row" fxFlex="20">
+          <div flex="row" fxFlex="30">
     <button class="close" mat-raised-button (click)=" onNoClick()" (click)="updateNotes(data)"> close</button>
           </div>
            
