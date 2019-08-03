@@ -17,3 +17,10 @@
     display: flex;
     padding: 0%;
 }
+::ng-deep .mat-dialog-container{
+    padding: 1px;
+
+}
+.mat-raised-button:not([class*=mat-elevation-z]) {
+    box-shadow: none;
+}

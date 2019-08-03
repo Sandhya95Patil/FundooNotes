@@ -29,7 +29,6 @@ export class DisplaynotesComponent implements OnInit {
   }
   changecolorfromchild(event) {
     console.log('event in display',event);
-    
-   // this.setcolorEvent.emit; 
+   this.setcolorEvent=event; 
   }
 }

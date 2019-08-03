@@ -1,7 +1,7 @@
 <div fxFlex="30" fxFlexOffset="35" class="card" fxLayout="row-wrap" fxLayoutGap="2rem">
     <mat-card *ngFor="let notes of getchildMessage" fxFlex="100" [style.background-color]="notes.color" >
         <div>
-               <div (click)="openDialog(notes)">
+               <div  (click)="openDialog(notes)">
                     <div>
                             {{notes.title}}
                     </div>
@@ -18,8 +18,11 @@
                      <div>
                      <!-- <app-icon></app-icon> -->
                      </div> 
+               </div>
+               <div>
+                <app-icon (setcolorEvent)="changecolorfromchild(event)"  [notesforiconchild]=notes></app-icon>
                </div>  
-               <app-icon (setcolorEvent)="changecolorfromchild(event)"  [notesforiconchild]=notes></app-icon>
+              
         </div>
     </mat-card>
 </div>

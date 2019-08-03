@@ -8,7 +8,7 @@ import { NoteServiceService } from "../../services/noteService/note-service.serv
 })
 export class NotesComponent implements OnInit {
    parentMessage=[];
-   
+ 
   constructor(private noteService:NoteServiceService) { }
 
   ngOnInit() {
@@ -22,8 +22,8 @@ export class NotesComponent implements OnInit {
    },error=>{
      console.log(error);
    })
-   }
    
+   }
   
   }
 

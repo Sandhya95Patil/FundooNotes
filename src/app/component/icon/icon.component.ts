@@ -1,6 +1,5 @@
 import { Component, OnInit,Output,EventEmitter,Input } from '@angular/core';
 import { NoteServiceService } from '../../services/noteService/note-service.service';
-
 @Component({
   selector: 'app-icon',
   templateUrl: './icon.component.html',
@@ -10,7 +9,7 @@ export class IconComponent implements OnInit {
   @Input() notesforiconchild   
   @Output() setcolorEvent = new EventEmitter();
   public colors:any=[
-[{ color: '#ff6347' },
+[{ color: '#00FFFF' },
 { color: '#7FFFD4' },
 { color: '#F0E68C' },
 { color: '#2E8B57' }],
@@ -22,13 +21,10 @@ export class IconComponent implements OnInit {
 { color: '#663399' },
 { color: '#00BFFF' },
 { color: '#0000FF' }]
-  ]
- 
+]
   constructor(private noteService:NoteServiceService) { }
   ngOnInit() {
-
   } 
-  
   setcolor(color){
     console.log("color",color)
   let data={
@@ -40,7 +36,8 @@ export class IconComponent implements OnInit {
     console.log('response',response)
   },error=>{
     console.log('error',error)
+   
   })
-  this.setcolorEvent.emit(color); 
+  this.setcolorEvent.emit(color);
 }
 }
