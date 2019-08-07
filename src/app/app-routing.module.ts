@@ -7,6 +7,7 @@ import { ResetComponent } from './component/reset/reset.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { NotesComponent } from './component/notes/notes.component';
 import { UpdateComponent } from './component/update/update.component';
+import { SearchnoteComponent } from './component/searchnote/searchnote.component';
 const routes: Routes = [
   {
     path:'',
@@ -28,8 +29,8 @@ const routes: Routes = [
     },
     {path:'notes',component:NotesComponent} ,
     {path:'update',component:UpdateComponent},
-   {path:'reminder',component:NotesComponent}
-
+   {path:'reminder',component:NotesComponent},
+   {path:'search',component:SearchnoteComponent}
   ]}
 ];
 

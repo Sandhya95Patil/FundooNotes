@@ -9,35 +9,43 @@ export class IconComponent implements OnInit {
   @Input() notesforiconchild   
   @Output() setcolorEvent = new EventEmitter();
   public colors:any=[
-[{ color: '#00FFFF' },
-{ color: '#7FFFD4' },
-{ color: '#F0E68C' },
-{ color: '#2E8B57' }],
-[{ color: '#FFFF00' },
-{ color: '#ADFF2F' },
-{ color: '#00FF7F' },
-{ color: '#FFDEAD' }],
-[{ color: '#8A2BE2' },
-{ color: '#663399' },
-{ color: '#00BFFF' },
-{ color: '#0000FF' }]
-]
+    [{ color: '#E0FFFF'},
+    { color: '#f28b82'},
+    { color: '#fbbc04'},
+    { color: '#E6E6FA'}],
+    [{ color: '#ccff90'},
+    { color: '#E1F5FE'},
+    { color: '#cbf0f8'},
+    { color: '#aecbfa'}],
+    [{ color: '#d7aefb'},
+    {color: '#fdcfe8'},
+    { color: '#e6c9a8'},
+    { color: '#e8eaed'}]
+    ];
   constructor(private noteService:NoteServiceService) { }
   ngOnInit() {
   } 
-  setcolor(color){
-    console.log("color",color)
+  setcolor(bgcolor){
+    console.log("color",bgcolor)
   let data={
-    color:color.color,
+    color:bgcolor.color,
     noteIdList:[this.notesforiconchild.id]
   }
+  this.notesforiconchild.color=bgcolor.color
   console.log('set color ',data  )
   this.noteService.colorchange(data).subscribe(response=>{
     console.log('response',response)
   },error=>{
     console.log('error',error)
-   
   })
-  this.setcolorEvent.emit(color);
+  //this.setcolorEvent.emit(bgcolor);
 }
+/*********************************Datefunction*********************************/
+// setDate(note){
+//   let d = new Date();
+//   var currMonth = d.getMonth();
+//   var currYear = d.getFullYear();
+//   var startDate = new Date(currYear, currMonth, 1);
+// }
+
 }

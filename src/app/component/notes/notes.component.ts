@@ -24,6 +24,10 @@ export class NotesComponent implements OnInit {
    })
    
    }
+   changecolor(event){
+console.log('event in notes',event);
+
+   }
   
   }
 

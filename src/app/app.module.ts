@@ -28,7 +28,11 @@ import { DisplaynotesComponent } from './component/displaynotes/displaynotes.com
 import { IconComponent } from './component/icon/icon.component';
 import { UpdateComponent } from './component/update/update.component';
 import {MatDialogModule} from '@angular/material/dialog';
-//import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { ReminderComponent } from './component/reminder/reminder.component';
+import { SearchnoteComponent } from './component/searchnote/searchnote.component';
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
+import {MatDatepickerModule,MatNativeDateModule} from '@angular/material';
+
 
 
 
@@ -44,7 +48,9 @@ import {MatDialogModule} from '@angular/material/dialog';
     TakeNoteComponent,
     DisplaynotesComponent,
     IconComponent,
-    UpdateComponent
+    UpdateComponent,
+    ReminderComponent,
+    SearchnoteComponent
   ],
   imports: [
     BrowserModule,
@@ -66,11 +72,17 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatListModule,
     //MatDialog, 
     //MatDialogRef, 
-    MatDialogModule
+    MatDialogModule,
+    OwlDateTimeModule,
+   OwlNativeDateTimeModule,
+   MatDatepickerModule,
+   MatNativeDateModule 
+ 
    
    
   ],
-  providers: [],
+  providers: [MatNativeDateModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+

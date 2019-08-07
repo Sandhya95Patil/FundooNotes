@@ -1,17 +1,16 @@
 <div class="container" fxFlex="100"  [class.example-is-mobile]="mobileQuery.matches" >
     <mat-toolbar class="toolbar" >
     <div feFlex="8" >
-      <button mat-icon-button (click)="snav.toggle()">
+      <button class="menu" mat-icon-button (click)="snav.toggle()">
         <mat-icon>menu</mat-icon>
       </button>  </div>
       <div fxFlex="8" fxHide.xs="true" >  
       <!-- < button mat-raised-button style="background:orange">  -->
     <img class="bulbimage" src="../../../assets/bulbimage.png" alt=""></div>
    <div fxFlex="15" class="color"> Fundoo</div>
-         <div fxFlex="54" >
+         <div fxFlex="54">
                 <img src="../../../assets/icon/search.svg" alt="">
-                <input class="search"  type="text" aria-autocomplete="both"  autocomplete="off" role="combobox"  aria-label="Search" placeholder="Search">
-         
+                <input class="search" (keyup)="searchNotes($event)" type="text" aria-autocomplete="both"  autocomplete="off" role="combobox"  aria-label="Search" placeholder="Search">
            <!-- <input matInput placeholder="Search" class="search" autocomplete="off" aria-hidden="true"> -->
           </div>
         <!-- <mat-icon>search</mat-icon> -->
@@ -19,7 +18,7 @@
          <div fxFlex="4"><mat-icon></mat-icon></div>
           <div fxFlex="4" > <mat-icon>settings</mat-icon></div>
           <div fxFlex="4" fxLayout.xs="hide"> <mat-icon>apps</mat-icon></div> -->
-         <div fxFlex="15"> <button mat-icon-button class="icon"  >icon</button></div>
+         <div fxFlex="15"> <button mat-icon-button class="icon">icon</button></div>
     </mat-toolbar>
   
  <mat-divider></mat-divider>
@@ -62,7 +61,7 @@
           </mat-sidenav>
       
           <mat-sidenav-content>
-      
+  
         <router-outlet></router-outlet>
           </mat-sidenav-content>
         </mat-sidenav-container>
