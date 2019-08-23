@@ -10,9 +10,11 @@ text-align: right;
 }
 ::ng-deep .mat-icon
 {
-    font-size: 14px;
+    font-size: 18px;
 }
-
+.save{
+    padding: 7px 21px;
+}
 
 .colorPicker
 {
@@ -35,5 +37,9 @@ text-align: right;
 }
 .time{
     display: flex; 
+}
+.input{
+text-align: initial;
+
 }
 

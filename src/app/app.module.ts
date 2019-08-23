@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegistrationComponent } from './component/registration/registration.component';
@@ -50,7 +50,7 @@ import {MatDatepickerModule,MatNativeDateModule} from '@angular/material';
     IconComponent,
     UpdateComponent,
     ReminderComponent,
-    SearchnoteComponent
+    SearchnoteComponent,
   ],
   imports: [
     BrowserModule,
@@ -76,7 +76,9 @@ import {MatDatepickerModule,MatNativeDateModule} from '@angular/material';
     OwlDateTimeModule,
    OwlNativeDateTimeModule,
    MatDatepickerModule,
-   MatNativeDateModule 
+   MatNativeDateModule ,
+MatSnackBarModule
+
  
    
    

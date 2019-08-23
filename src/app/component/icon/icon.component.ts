@@ -7,7 +7,7 @@ import { NoteServiceService } from '../../services/noteService/note-service.serv
 })
 export class IconComponent implements OnInit {
   @Input() notesforiconchild   
-  @Output() setcolorEvent = new EventEmitter();
+  //@Output() setcolorEvent = new EventEmitter();
   public colors:any=[
     [{ color: '#E0FFFF'},
     { color: '#f28b82'},
@@ -41,11 +41,18 @@ export class IconComponent implements OnInit {
   //this.setcolorEvent.emit(bgcolor);
 }
 /*********************************Datefunction*********************************/
-// setDate(note){
-//   let d = new Date();
-//   var currMonth = d.getMonth();
-//   var currYear = d.getFullYear();
-//   var startDate = new Date(currYear, currMonth, 1);
-// }
+ setDate(note){
+  let d = new Date();
+ }
 
 }
+// Here a date has been assigned 
+// while creating Date object 
+var dateobj = new Date('October 1996 05:35:32'); 
+  
+// date of the month from above date object 
+// is extracted using getDate() 
+var B = dateobj.getDate(); 
+  
+// Printing date of the month 
+console.log(B); 

@@ -1,12 +1,15 @@
-<div  fxLayout="row" fxLayoutAlign="space-between center" fxFlex="100" fxLayout.xs="50">
+   <div  fxLayout="row" fxLayoutAlign="space-between center" fxFlex="100" fxLayout.xs="50">
    <!---------------------*****Set Reminder*******-------------------------->
     <div fxFlex="17" fxLayout.xs="9">
             <button class="reminder" mat-icon-button [matMenuTriggerFor]="remindermenu">
                     <mat-icon class="color">add_alert</mat-icon>
                     <mat-menu #remindermenu="matMenu">
                         <div class="arrow">
-                                <button mat-icon-button >
+                                <button mat-icon-button [matMenuTriggerFor]="rem">
                                         <mat-icon>keyboard_backspace</mat-icon>
+                                        <mat-menu #rem="matMenu">
+                                            Remainder
+                                        </mat-menu>
                                     </button>
                                     Select date & time
                         </div>
@@ -21,6 +24,8 @@
                                         <owl-date-time [pickerType]="'timer'" #dt4></owl-date-time>
                                      </mat-form-field>     
                                 </div>   
+                                <div fxLayoutAlign="end end" class="save">
+                                    <button mat-button>save</button></div>
                     </mat-menu>
                     
                 

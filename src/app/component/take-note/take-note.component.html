@@ -3,9 +3,10 @@
     <mat-card  fxFlex="50" fxLayout.xs="25">
         <form [formGroup]="addnoteForm" fxLayout="column"  fxFlex="100" >
             <div fxLayout="row"  fxLayoutAlign="center center"  *ngIf="isOpen "  (click)="isOpen = !isOpen "  >
-                <div fxFlex="70" fxLayout.xs="35" >
+                <div fxFlex="60" fxLayout.xs="35" >
                             <input matInput type="text" class="input" placeholder="Take a note.." >
                         </div> 
+                        <div fxFlex=10></div>
                      <div fxLayout.lg="10" fxLayout.xs="5" fx>
                              <mat-icon class="color">check_box</mat-icon>
                          </div>
