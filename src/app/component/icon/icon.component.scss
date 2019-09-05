@@ -12,34 +12,68 @@ text-align: right;
 {
     font-size: 18px;
 }
-.save{
-    padding: 7px 21px;
-}
-
-.colorPicker
-{
-    height:25px;
+.colorPicker {
+    height: 25px;
     width: 25px;
-    border-radius: 20px;
-}
-.menu{
-    padding-bottom:0.5rem;
-}
-.reminder{
-    padding-bottom:0.5rem; 
-}
-.arrow{
-    font-size: 12px;
-}
-.date{
-    display: flex;
-   
-}
-.time{
-    display: flex; 
-}
-.input{
-text-align: initial;
+    border-radius: 50%;
+    margin: 2px;
+  }
+  
+  .date {
+    border-radius: 0 25px 25px 0;
+    border: transparent;
+    font-size: 14px;
+    flex: 5 5 auto;
+    cursor: pointer;
+  }
+  .reminderMenu {
+    width: 200px;
+  }
+  #reminderLabel {
+    margin-right: 10px;
+    line-height: 25px;
+    cursor: pointer;
+  }
+  .lb{
+    cursor: pointer;
+  }
+  
+  h6 {
+    margin-top: 7px;
+    margin-left: 5px;
+  }
+  
+  .noteReminder
+  {
+  font-size: 13px;
+  line-height: 40px;
+  font-family: 'Roboto',arial,sans-serif;
+  color: #202124;
+  margin-left: 10px;
+  margin-right: 10px;
+  border: transparent;
+  background: transparent;
+  cursor: pointer;
+  
+  }
+  
+  .noteReminder1
+  {
+  font-size: 14px;
+  line-height: 40px;
+  font-family: 'Roboto',arial,sans-serif;
+  color: black;
+  margin-left: 10px;
+  }
+  .material-icons{
+      padding-top: 2px;
+      padding-left: 8px;
 
-}
+  }
+  .pick{
+      padding-top: 10px;
+  }
+  .img{
+    color:gray;
+  }
 

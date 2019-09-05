@@ -1,41 +1,103 @@
-   <div  fxLayout="row" fxLayoutAlign="space-between center" fxFlex="100" fxLayout.xs="50">
+   <div  fxLayout="row">
+     <div fxFlex=100 fxFlex.xs=80 fxLayout=row fxLayoutGap=2.5% fxLayoutGap.xs=5%>
    <!---------------------*****Set Reminder*******-------------------------->
-    <div fxFlex="17" fxLayout.xs="9">
-            <button class="reminder" mat-icon-button [matMenuTriggerFor]="remindermenu">
-                    <mat-icon class="color">add_alert</mat-icon>
-                    <mat-menu #remindermenu="matMenu">
-                        <div class="arrow">
-                                <button mat-icon-button [matMenuTriggerFor]="rem">
-                                        <mat-icon>keyboard_backspace</mat-icon>
-                                        <mat-menu #rem="matMenu">
-                                            Remainder
-                                        </mat-menu>
-                                    </button>
-                                    Select date & time
-                        </div>
-                            <mat-form-field class="date">
-                                    <input matInput [matDatepicker]="picker" >
-                                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                                    <mat-datepicker #picker></mat-datepicker>
-                                  </mat-form-field>
-                                <div>
-                                     <mat-form-field class="time">
-                                        <input matInput [owlDateTimeTrigger]="dt4" [owlDateTime]="dt4">
-                                        <owl-date-time [pickerType]="'timer'" #dt4></owl-date-time>
-                                     </mat-form-field>     
-                                </div>   
-                                <div fxLayoutAlign="end end" class="save">
-                                    <button mat-button>save</button></div>
-                    </mat-menu>
-                    
-                
-            </button>
+   <div fxFlex="14" >
+    <button class="reminder" mat-icon-button [matMenuTriggerFor]="remindermenu" matTooltip="Remind me">
+            <mat-icon class="color">add_alert</mat-icon>
+            <mat-menu #remindermenu="matMenu">
+                    <div fxLayout="column" class="reminderMenu">
+                            <div fxLayoutAlign="space-between center">
+                              <label class="noteReminder1">Reminder : </label>
+                            </div>
+                            <div>
+                              <div class="date" (click)="today()" class="noteReminder" fxLayout="row"
+                                fxLayoutAlign="space-around center">
+                  
+                                <!-- <label class="noteReminder" id="reminderLabel">Later today</label>
+                              <label class="lb" >8:pm </label> -->
+                                <a>Later Today</a>
+                                <a>8:pm</a>
+                              </div>
+                            </div>
+                  
+                            <div>
+                              <div class="date" fxLayout="row" (click)="tommorrow()" class="noteReminder"
+                                fxLayoutAlign="space-around center">
+                                <div>Tommorrow</div>
+                                <div>8:am</div>
+                                <!-- <label id="reminderLabel" class="noteReminder" >Tommorow</label>
+                              <label class="lb"> 8:pm </label> -->
+                              </div>
+                            </div>
+                  
+                            <div>
+                              <div class="date" fxLayout="row" class="noteReminder" (click)="nextWeekMonday()"
+                                fxLayoutAlign="space-around center">
+                                <div>Next Week</div>
+                                <div>Mon 8:am</div>
+                                <!-- <label  >Next week</label>
+                              <label >Mon 8:pm </label> -->
+                              </div>
+                            </div>
+                            <button mat-menu-item [matMenuTriggerFor]="datepicker">
+                              <mat-icon>access_time</mat-icon>
+                              <span>Pick Date & Time</span>
+                            </button>
+                          </div>
+                        </mat-menu>
+                        <mat-menu #datepicker="matMenu">
+                  
+                          <div fxLayout='row'>
+                            <button mat-icon-button>
+                              <i class="material-icons">
+                                keyboard_backspace
+                              </i>
+                            </button>
+                            <!-- <mat-icon>keyboard_backspace</mat-icon> -->
+                            <h6 class="pick">Pick date & time</h6>
+                          </div>
+                  
+                          <button mat-menu-item>
+                            <label>
+                              <input matInput [owlDateTimeTrigger]="dt3" [(ngModel)]="dateTime" [owlDateTime]="dt3"
+                                placeholder=" select date">
+                              <owl-date-time [pickerType]="'calendar'" #dt3></owl-date-time>
+                            </label>
+                          </button>
+                  
+                          <button mat-menu-item><label>
+                              <input matInput [owlDateTimeTrigger]="dt4" [owlDateTime]="dt4" [(ngModel)]="dateTime"
+                                placeholder="select time">
+                              <owl-date-time [pickerType]="'timer'" #dt4></owl-date-time>
+                            </label>
+                          </button>
+                  
+                          <button mat-menu-item>
+                            <mat-form-field>
+                              <select (click)="$event.stopPropagation()" matNativeControl required>
+                                <option value="volvo" (click)="$event.stopPropagation()">daily</option>
+                                <option value="saab" (click)="$event.stopPropagation()">repeat</option>
+                                <option value="mercedes" (click)="$event.stopPropagation()">do not reapeat</option>
+                                <option value="audi" (click)="$event.stopPropagation()">weekly</option>
+                                <option value="audi" (click)="$event.stopPropagation()">monthly</option>
+                              </select>
+                            </mat-form-field>
+                          </button>
+                          <mat-divider></mat-divider>
+                          <div mat-dialog-actions fxLayoutAlign='end end'>
+                            <button mat-button cdkFocusInitial (click)="setReminder()">Save</button>
+                          </div>
+            </mat-menu>
+    </button>
 </div>
-<div fxFlex="17" fxLayout.xs="6" >
-    <mat-icon class="color">person_add</mat-icon>
+<!-----------****************Add Colaborator***************---------->
+<div fxFlex="14">
+  <button mat-icon-button>
+      <mat-icon class="color" matTooltip="Collaborator">person_add</mat-icon>
+  </button>
 </div>
    <!---------------------***ChangeColor***-------------------------->
-   <div  fxFlex="17" fxLayout.xs="15">
+   <div  fxFlex="14" >
         <button class="menu"  mat-icon-button [matMenuTriggerFor]="menu">
                 <mat-icon class="color">palette</mat-icon>
                 <mat-menu #menu="matMenu">
@@ -48,17 +110,29 @@
            </button>
    </div>
 
-<!------------------------****Photo****------------------------------->
-<div fxFlex="17" fxLayout.xs="6">
-    <mat-icon class="color">photo</mat-icon>
+<!------------------------****Add image****------------------------------->
+<div fxFlex="14" >
+  <button mat-icon-button>
+     <mat-icon class="color">photo</mat-icon>
+  </button>
 </div>
-<div fxFlex="17" fxLayout.xs="9">
-    <mat-icon class="color">archive</mat-icon>
+<!------------------************Archive & Unarchive***********---------------->
+<div fxFlex="14" >
+  <button mat-icon-button>
+    <!-- <mat-icon class="color">archive</mat-icon> -->
+    <mat-icon class="img" (click)="archiveNote()"  *ngIf="!isTrash && 
+    !isArchive" matTooltip="Archive">archive
+</mat-icon> 
+        <mat-icon class="img" (click)="unArchiveNote()" *ngIf="!isTrash && isArchive" 
+        matTooltip="unArchive">unarchive
+</mat-icon>
+</button>
 </div>
-<div fxFlex="15" fxLayout.xs="5">
+<!-----------------**************More option***************---------------->
+<div fxFlex="14">
     <mat-icon class="color">more_vert</mat-icon>
 </div>
-
+<div fxFlex="4"></div>
 <!-- <mat-menu #menu="matMenu">
         <div fxLayout ='row' fxFlex="60" *ngFor="let color of colors">
             <div *ngFor="let bgcolor of color">
@@ -67,5 +141,5 @@
         </div>
     </mat-menu> -->
 
-
+</div>
 </div>

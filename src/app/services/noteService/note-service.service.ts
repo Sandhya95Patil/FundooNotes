@@ -19,4 +19,20 @@ export class NoteServiceService {
   colorchange(data){
     return this.httpservice.post('/notes/changesColorNotes',data)
   }
+  setReminder(object){
+    return this.httpservice.post('/notes/addUpdateReminderNotes',object)
+  }
+  getReminderNotesList()
+  {
+    return this.httpservice.get('/notes/getReminderNotesList')
+  }
+  getLableList(){
+    return this.httpservice.get('/noteLabels/getNoteLabelList')
+  }
+  getArchiveNotesList(){
+    return this.httpservice.getNotes('/notes/getArchiveNotesList')
+  }
+  archiveNote(data){
+    return this.httpservice.postAth('/notes/archiveNotes',data);
+  }
 }

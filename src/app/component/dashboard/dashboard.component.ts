@@ -1,23 +1,22 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {MediaMatcher} from '@angular/cdk/layout';
-import {ChangeDetectorRef, OnDestroy} from '@angular/core';
+import {ChangeDetectorRef} from '@angular/core';
 import { Router } from '@angular/router';
 import { DataserviceService } from "../../services/dataservice/dataservice.service";
+import { NoteServiceService } from "../../services/noteService/note-service.service";
+//import { SetprofileComponent } from "../setprofile/setprofile.component";
+import { MatDialog } from '@angular/material';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-// export class DashboardComponent implements OnInit {
-
-//   constructor() { }
-
-//   ngOnInit() {
-//   }
-
-// }
-export class DashboardComponent implements OnDestroy{
+export class DashboardComponent implements OnInit {
   mobileQuery: MediaQueryList;
+ 
+
+// export class DashboardComponent implements OnDestroy{
+ 
   // fillerNav = Array.from({length: 50}, (_, i) => `Nav Item ${i + 1}`);
 
   // fillerContent = Array.from({length: 50}, () =>
@@ -25,17 +24,48 @@ export class DashboardComponent implements OnDestroy{
 
   private _mobileQueryListener: () => void;
 
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher,private router:Router,private dataService:DataserviceService) {
+  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher,private router:Router,
+    private dataService:DataserviceService,private noteService:NoteServiceService,public dialog:MatDialog) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
   }
+  allLabel = [];
+  isList;
+  localstorage_image:any
+  imageurl:string
+  fname;
+  lname;
+  email;
+  username
+  view:any
+  grid:any
+  list:any
+  
 
+  ngOnInit() {
+    this.mobileQuery.removeListener(this._mobileQueryListener);
+    //this.getLabelList() ;
+    this.list = localStorage.getItem('isListView')
+    //this.changeProfilePic();
+    this.fname=localStorage.getItem('firstName');
+    this.lname=localStorage.getItem('lastName');
+    this.email=localStorage.getItem('email');
+    this.username=this.fname + this.lname;
+    localStorage.setItem('userName',this.username);
+   // this.dataService.profilepicData.subscribe(data=>{
+     // this.changeProfilePic();
+    //})
+
+
+    
+  }
 
   
-  ngOnDestroy(): void {
-    this.mobileQuery.removeListener(this._mobileQueryListener);
-  }
+  // ngOnDestroy(): void {
+   
+  // }
+  /*************************Search Note**********************/
 searchNotes(event:any){
  this.router.navigate(['/dashboard/search']);
   console.log('event',event);
@@ -46,6 +76,42 @@ searchNotes(event:any){
    type:'search'
 })
 }
+/******************************Get Label List*************************/
+getLabelList() {
+  try {
+    this.noteService.getLableList().subscribe(response => {
+      this.allLabel = response['data'].details
 
+      this.dataService.changeData({
+        type: 'label',
+        data: response['data'].details
+      })
+      this.allLabel.reverse();
 
+    }, error => {
+      console.log(" error is ", error);
+
+    })
+
+  } catch (error) {
+    console.log(error);
+
+  }
+}
+  /************************ Grid and List View *********************/
+  
+   View() 
+   {
+     if (this.list == true) {
+       this.list = false;
+     } else {
+       this.list = true;
+     }
+     this.isList = this.list;
+     localStorage.setItem('isListView', this.isList);
+     console.log('List view data',this.isList)
+     this.dataService.listViewData({
+       data: this.isList
+     });
+}
 }

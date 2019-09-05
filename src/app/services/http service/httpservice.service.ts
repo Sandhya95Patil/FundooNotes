@@ -25,6 +25,16 @@ post(url, data) {
     }
     return formBody.join('&');
   }
+  postAth(url,data){
+    console.log('post ath ',url,data)
+    var options={
+      headers:new HttpHeaders({
+        'Authorization': localStorage.getItem('token'),
+        'content-Type':'application/json'
+      })
+    }
+    return this.http.post(this.baseUrl + url, data, options)
+  }
   encodedPost(url, data) {
     let options = {
       headers: new HttpHeaders({
@@ -44,4 +54,16 @@ post(url, data) {
     return this.http.get(this.baseUrl+url,options)
 
 }
+getNotes(url) {
+  let options = {
+    headers: new HttpHeaders({
+      'Authorization': localStorage.getItem('token'),
+      'Content-Type': 'application/json'
+
+    })
+  }
+  return this.http.get(this.baseUrl + url, options)
+
+}
+
 }

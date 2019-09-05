@@ -58,7 +58,7 @@ gotoRegister(){
 
     this.userService.login(user).subscribe(response => {
       console.log(" reponse ", response);
-      this.snackBar.open(response.toString(),'',{
+      this.snackBar.open('User login successfully......','',{
         duration:1000
       })
       localStorage.setItem('token', response['id']);
@@ -71,6 +71,9 @@ gotoRegister(){
     
     }, error => {
       console.log(error);
+      this.snackBar.open('Please enter correct password & email','',{
+        duration:1000
+      })
     })
   } 
   

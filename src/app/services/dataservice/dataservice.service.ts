@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject , Subject} from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -13,4 +13,41 @@ export class DataserviceService {
     console.log('search note',search);
     this.noteSource.next(search)
   }
+   /* Required for Grid*/
+   result: boolean = true;
+   subject = new Subject
+ 
+   /* gridView method*/
+   gridView() {
+     if (this.result) {
+       this.subject.next({ data: "column" });
+       this.result = false;
+     }
+     else {
+       this.subject.next({ data: "row" });
+       this.result = true;
+     }
+   }
+ 
+   getView() {
+     this.gridView();
+     return this.subject.asObservable();
+   }
+ 
+ 
+   
+   private arrayData = new BehaviorSubject({ type: '', data: [] });
+   currentData = this.arrayData.asObservable();
+   changeData(message: any) {
+     // console.log(" data service called", message);
+     this.arrayData.next(message)
+   }
+ 
+   private listData = new BehaviorSubject([]);
+   viewListData = this.listData.asObservable();
+   listViewData(message) {
+     console.log(" data service called", message);
+     this.listData.next(message)
+   }
+ 
 }

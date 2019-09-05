@@ -1,30 +1,84 @@
 <div class="container" fxFlex="100"  [class.example-is-mobile]="mobileQuery.matches" >
-    <mat-toolbar class="toolbar" >
-    <div feFlex="8" >
-      <button class="menu" mat-icon-button (click)="snav.toggle()">
-        <mat-icon>menu</mat-icon>
-      </button>  </div>
-      <div fxFlex="8" fxHide.xs="true" >  
-      <!-- < button mat-raised-button style="background:orange">  -->
-    <img class="bulbimage" src="../../../assets/bulbimage.png" alt=""></div>
-   <div fxFlex="10" class="color"> Fundoo</div>
-   <div fxFlex=9></div>
-         <div fxFlex="40">
-                <!-- <img src="../../../assets/icon/search.svg" alt=""> -->
-                <input class="search" (keyup)="searchNotes($event)" type="text" aria-autocomplete="both"  autocomplete="off" role="combobox"  aria-label="Search" placeholder="Search">
-           <!-- <input matInput placeholder="Search" class="search" autocomplete="off" aria-hidden="true"> -->
+    
+      <mat-toolbar class="toolbar" >
+        <button class="menu" mat-icon-button (click)="snav.toggle()">
+          <mat-icon matTooltip="Menu">menu</mat-icon>
+        </button>  
+        <div  fxHide.xs="true" >  
+      <img class="bulbimage" src="../../../assets/bulbimage.png" alt=""></div>
+      <div fxLayout="row" fxLayoutAlign="space-between center" fxFlex="100">
+          <div>
+            <h1 class="app-name">
+              <p>
+                <span class="f">F</span>
+                <span class="u">u</span>
+                <span class="n">n</span>
+                <span class="d">d</span>
+                <span class="o">o</span>
+                <span class="O">o</span>
+              </p>
+            </h1>
+    
           </div>
-        <!-- <mat-icon>search</mat-icon> -->
-         <!-- <div fxFlex="4"> <mat-icon>refresh</mat-icon></div>
-         <div fxFlex="4"><mat-icon></mat-icon></div>
-          <div fxFlex="4" > <mat-icon>settings</mat-icon></div>
-          <div fxFlex="4" fxLayout.xs="hide"> <mat-icon>apps</mat-icon></div> -->
-          <div fxFlex=10>
-            
-          </div>
-         <div fxFlex="15"> <button mat-icon-button class="icon">icon</button></div>
-    </mat-toolbar>
+      </div>
+      <div class="search" fxFlex.md='35' fxFlex='55'>
   
+                   <!-- <img src="../../../assets/icon/search.svg" alt=""> -->
+                  <input class="search" (keyup)="searchNotes($event)" type="text" aria-autocomplete="both"  autocomplete="off" role="combobox"  aria-label="Search" placeholder="Search">
+            
+                </div>
+            <!-- <div fxFlex=10 style="margin-left:70px"> 
+              <button mat-icon-button>  
+               <img class="listview" src="../../../assets/list.png" alt=""> 
+              <img class="gridview" src="../../../assets/icons8-grid-2-24.png" alt="">
+              </button>
+            </div> -->
+  
+            <div fxFlex="25" fxShow fxHide.xs fxShow fxHide.xs>
+                <button mat-icon-button style="margin-top:10px;margin-left: 100px; outline: none;" class="materialicons" *ngIf=!list
+                  (click)=View() matTooltip="List view" fxShow="true">
+                  <i class="material-icons">
+                    view_stream</i>
+                </button>
+                <button fxShow fxHide.xs fxShow fxHide.xs mat-icon-button style="margin-top:10px;margin-left: 100px; outline: none;"
+                  class="materialicons" *ngIf=list (click)=View() matTooltip="Grid view" fxShow="true">
+                  <i class="material-icons">view_module</i>
+                </button>
+              </div>
+              <div>
+                  <button mat-icon-button  [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu"
+                    fxFlex.xs="50">
+                    <img class="avatar " mat-card-avatar [src]="imageurl">
+                    
+                  </button>
+                  <mat-menu #menu="matMenu">
+                      <div fxLayout="row" fxFlex="100" fxLayoutAlign="space-between center">
+                          <mat-card fxLayout="row" fxLayoutAlign="space-between center">
+                            <div class="image-container" style="margin-top: -50;margin-left: -10px">
+                              <img class="image" mat-card-avatar [src]="imageurl" (profilePic)="changeProfilePic()"
+                                (click)="openSetProfileDialog()">
+                              <span class="message">change</span>
+                            </div>
+                            <div style="margin-top: -50px" class="gb_3a">
+                              <div class="un">{{userName | titlecase}}</div>
+                              <div class="email">{{email}}</div>
+                            </div>
+          
+                          </mat-card>
+                        </div>
+                          <mat-divider></mat-divider>
+          
+                <div fxLayout="row" fxFlex="100" fxLayoutAlign="space-around  center">
+                  <button mat-raised-button>Add acount</button>
+                  <button mat-raised-button (click)="logout()">Sign out</button>
+                </div>
+                    </mat-menu>
+              </div>
+                  
+        
+            </mat-toolbar>
+        
+
  <mat-divider></mat-divider>
       <mat-sidenav-container   class="sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
           <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"

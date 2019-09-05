@@ -3,6 +3,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from '../../model/UserRegister';
 import { UserService } from '../../services/user service/user.service'
+import {MatSnackBar} from '@angular/material/snack-bar';
+
 
 @Component({
   selector: 'app-registration',
@@ -12,7 +14,7 @@ import { UserService } from '../../services/user service/user.service'
 export class RegistrationComponent implements OnInit {
   public registerForm: FormGroup
  
-  constructor(private router: Router, private userService: UserService) {
+  constructor(private router: Router, private userService: UserService,private snackBar:MatSnackBar) {
   }
   gotoLogin() {
     this.router.navigate(['/login']);  // define your component where you want to go
@@ -60,6 +62,9 @@ export class RegistrationComponent implements OnInit {
 
     this.userService.register(user).subscribe(response => {
       console.log(" reponse ", response);
+      this.snackBar.open('User Registered successfully','',{
+        duration:1000
+      })
 
     }, error => {
       console.log(error);
