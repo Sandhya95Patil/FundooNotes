@@ -1,4 +1,4 @@
-<div fxFlex="30" fxFlexOffset="35" fxLayout="row" fxLayoutGap="32px" class="card"  >
+<div fxFlex="30" fxFlexOffset="35" fxLayout="row" fxLayoutGap="32px" class="card">
     <mat-card *ngFor="let notes of getchildMessage" fxFlex="100" [style.background-color]="notes.color" >
         <div>
                <div  (click)="openDialog(notes)">
@@ -9,15 +9,6 @@
                     <div>
                          {{notes.description}}
                     </div><br>
-                    <!-- <div>
-                      <mat-icon></mat-icon>
-                    </div> -->
-                    <!-- <div>
-                     <input matInput type="text" class="dis">  
-                    </div> -->
-                     <div>
-                     <!-- <app-icon></app-icon> -->
-                     </div> 
                </div>
                <div>
                 <app-icon [notesforiconchild]=notes></app-icon>

@@ -21,12 +21,43 @@
     
           </div>
       </div>
-      <div class="search" fxFlex.md='35' fxFlex='55'>
+
+
+      <div class="search" fxFlex.md='35' fxFlex='45' fxFlexOffset='14' fxFlexOffset.sm='12'>
+          <!-- <span fxShow fxHide.xs fxShow fxHide.xs class="example-spacer"></span> -->
+          <mat-form-field [style.fontSize.px]="12" fxShow fxHide.xs fxShow fxHide.xs appearance="outline"
+            routerLink="search"  fxFlex="60" fxFlex.md="50" fxFlex.xs="50">
+            <button mat-icon-button matSuffix fxFlex.xs="50" matTooltip="Search">
+              <mat-icon matPrefix>search</mat-icon>
+            </button>
+            <input matInput type="text" [(ngModel)]="title" placeholder="search" (keyup)="searchNotes($event)">
+          </mat-form-field>
+        </div>
+  
+        <div fxShow fxShow.xs fxHide><button mat-icon-button matSuffix fxFlex.xs="50" matTooltip="Search">
+            <mat-icon matPrefix (click)="searchVisible()">search</mat-icon>
+          </button> </div>
+        <div *ngIf="searchInput==true" fxFlex.md='35' fxFlex='45' fxFlexOffset='14' fxFlexOffset.sm='12' fxHide.xs='true'>
+          <mat-form-field appearance="outline" [style.fontSize.px]=12>
+  
+            <input matInput placeholder="search" class="place" [(ngModel)]="title" (keyup)="searchNotes($event)"
+              autocomplete="off">
+            <!-- <mat-icon matPrefix>search</mat-icon> -->
+  
+          </mat-form-field>
+        </div>
+
+
+
+
+
+
+      <!-- <div class="search" fxFlex.md='35' fxFlex='55'> -->
   
                    <!-- <img src="../../../assets/icon/search.svg" alt=""> -->
-                  <input class="search" (keyup)="searchNotes($event)" type="text" aria-autocomplete="both"  autocomplete="off" role="combobox"  aria-label="Search" placeholder="Search">
+                  <!-- <input class="search" (keyup)="searchNotes($event)" type="text" aria-autocomplete="both"  autocomplete="off" role="combobox"  aria-label="Search" placeholder="Search">
             
-                </div>
+                </div> -->
             <!-- <div fxFlex=10 style="margin-left:70px"> 
               <button mat-icon-button>  
                <img class="listview" src="../../../assets/list.png" alt=""> 
@@ -47,7 +78,7 @@
               </div>
               <div>
                   <button mat-icon-button  [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu"
-                    fxFlex.xs="50">
+                    fxFlex.xs="30">
                     <img class="avatar " mat-card-avatar [src]="imageurl">
                     
                   </button>
@@ -69,7 +100,7 @@
                           <mat-divider></mat-divider>
           
                 <div fxLayout="row" fxFlex="100" fxLayoutAlign="space-around  center">
-                  <button mat-raised-button>Add acount</button>
+                  <button mat-raised-button (click)="gotoLogin()">Add acount</button>
                   <button mat-raised-button (click)="logout()">Sign out</button>
                 </div>
                     </mat-menu>

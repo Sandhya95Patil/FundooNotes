@@ -20,12 +20,10 @@ export class IconComponent implements OnInit {
   isDeleted=true
   //@Output() setcolorEvent = new EventEmitter();
   @Output() onArchiveChange=new EventEmitter();
-  @Output() onChangeReminder=new EventEmitter();
   @Output() onChangeLabel=new EventEmitter();
   @Output() labelToNote=new EventEmitter();
-  @Output() reminderToNote=new EventEmitter();
   @Output() noteTrash=new EventEmitter();
-  @Output() childObject=new EventEmitter();
+  
 
 
 
@@ -137,7 +135,7 @@ setReminder(){
  /**
  * @description: this method is for finding next MOnday date 
  */
- closestMonday = () => {
+ closestMonday (){
  var curr_date = new Date(); // current date
  var day_info = 8.64e+7; // milliseconds per day
  var days_to_monday = 8 - curr_date.getDay(); // days left to closest Monday
@@ -181,6 +179,7 @@ setReminder(){
      console.log('archive data',data)
      this.noteService.archiveNote(data).subscribe(response=>{
        this.onArchiveChange.emit();
+       console.log('response',response)
        this.snackBar.open('Arechive note','',{
          duration:1000
        })

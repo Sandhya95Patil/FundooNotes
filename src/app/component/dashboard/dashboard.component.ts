@@ -42,7 +42,9 @@ export class DashboardComponent implements OnInit {
   grid:any
   list:any
   
-
+gotoLogin(){
+  this.router.navigate(['/login']);
+}
   ngOnInit() {
     this.mobileQuery.removeListener(this._mobileQueryListener);
     //this.getLabelList() ;

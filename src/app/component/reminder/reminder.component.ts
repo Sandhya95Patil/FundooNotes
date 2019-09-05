@@ -12,13 +12,12 @@ labels:boolean
   constructor(private noteService:NoteServiceService) { }
 
   ngOnInit() {
-    this.reminderNoteList();
+    var reminderNoteList=this.reminderNoteList();
+console.log('reminder note list',reminderNoteList)
   }
   reminderNoteList() {
     try {
-     // this.notes = [];
-      //this.pinedArray = []
-      //this.unpinedArray = []
+     
       this.noteService.getReminderNotesList().subscribe(response => {
         console.log('response ', response['data'].data);
         this.notes = response['data'].data
@@ -28,20 +27,7 @@ labels:boolean
         } else {
           this.labels = true
         }
-        // for (let i = this.notes.length; i > 0; i--) {
-        //   if (this.notes[i - 1]["isDeleted"] == false) {
-        //     if (this.notes[i - 1]["isPined"] == true) {
-        //       this.pinedArray.push(this.notes[i - 1]);
-        //       this.pinedArray.reverse();
-        //       console.log("pinned array@@@@@@@", this.pinedArray);
-        //     }
-        //     else {
-        //       this.unpinedArray.push(this.notes[i - 1]);
-        //       this.unpinedArray.reverse();
-        //       console.log("unpinned array@@@@@@@", this.unpinedArray);
-        //     }
-        //   }
-        // }
+        
       }, error => {
         console.log('error ', error);
 

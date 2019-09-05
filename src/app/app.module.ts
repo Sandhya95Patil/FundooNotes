@@ -33,6 +33,8 @@ import { SearchnoteComponent } from './component/searchnote/searchnote.component
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 import {MatDatepickerModule,MatNativeDateModule} from '@angular/material';
 import { ArchiveComponent } from './component/archive/archive.component';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatChipsModule} from '@angular/material/chips';
 
 
 
@@ -79,8 +81,9 @@ import { ArchiveComponent } from './component/archive/archive.component';
    OwlNativeDateTimeModule,
    MatDatepickerModule,
    MatNativeDateModule ,
-MatSnackBarModule
-
+MatSnackBarModule,
+MatTooltipModule,
+MatChipsModule
  
    
    
