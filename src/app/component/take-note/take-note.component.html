@@ -1,37 +1,47 @@
 
 <div  class="card"  fxFlex="100" >
-    <mat-card  fxFlex="40" fxLayout.xs="25" >
-        <form [formGroup]="addnoteForm" fxLayout="column"  fxFlex="100" >
-            <div fxLayout="row"  fxLayoutAlign="center center"  *ngIf="isOpen "  (click)="isOpen = !isOpen "  >
-                <div fxFlex="60" fxLayout.xs="35" >
-                            <input matInput type="text" class="input" placeholder="Take a note.." >
-                        </div> 
-                        <div fxFlex=10></div>
-                     <div fxLayout.lg="10" fxLayout.xs="5" fx>
-                             <mat-icon class="color">check_box</mat-icon>
-                         </div>
-                         <div fxLayout.lg="10" fxLayout.xs="5">
-                                 <mat-icon class="color">brush</mat-icon>
+        <mat-card  fxFlex="50" fxLayout.xs="25">
+            <form [formGroup]="addnoteForm" fxLayout="column"  fxFlex="100" >
+                <div fxLayout="row"  fxLayoutAlign="center center"  *ngIf="isOpen "  (click)="isOpen = !isOpen "  >
+                    <div fxFlex="60" fxLayout.xs="35" >
+                        Take a Note..
+                                <!-- <input matInput type="text" class="input" placeholder="Take a note.." > -->
+                            </div> 
+                            <div fxFlex=10></div>
+                         <div fxLayout.lg="10" fxLayout.xs="5" >
+                             <button mat-icon-button>
+                                    <mat-icon class="color">check_box</mat-icon>
+                             </button>
                              </div>
-                     <div fxLayout.lg="10" fxLayout.xs="5">
-                         <mat-icon class="color">crop_original</mat-icon>
-                     </div>
-        </div>
-       
-    <div *ngIf="!isOpen " >
-      <div fxLayout="column">
-           <input matInput type="text" fxFlex="10"  class="input" formControlName="title" placeholder="Title">
-      </div>
-  <div fxLayout="column" class="textarea">
-        <textarea style="border: none"  placeholder="Take a note.."  formControlName="description"></textarea>
- </div>
- <div fxLayout="row">
-        <div fxFlex="80">
-                <app-icon></app-icon>
-        </div>
-        <div flex="row"  fxFlex="20" (click)="onClickClose(addnoteForm.value)" class="close" >close</div>
-   </div> 
-</div>
- </form>
-</mat-card>
-</div>
+                             <div fxLayout.lg="10" fxLayout.xs="5">
+                                 <button mat-icon-button>
+                                        <mat-icon class="color">brush</mat-icon>
+                                 </button>
+                                 </div>
+                         <div fxLayout.lg="10" fxLayout.xs="5">
+                             <button mat-icon-button>
+                                    <mat-icon class="color">crop_original</mat-icon>
+                             </button>
+                         </div>
+            </div>
+           
+        <div *ngIf="!isOpen " >
+          <div fxLayout="column">
+               <input matInput type="text" fxFlex="10"  class="input"  formControlName="title" placeholder="Title">
+          </div>
+      <div fxLayout="column" class="textarea">
+            <textarea style="border: none"  placeholder="Take a note.."  formControlName="description"></textarea>
+     </div>
+     <div fxLayout="row">
+            <div fxFlex="80">
+                    <app-icon></app-icon>
+            </div>
+            <div flex="row"  fxFlex="20">
+            <button mat-icon-button (click)="onClickClose(addnoteForm.value)" class="close" >close</button>
+            </div>
+       </div> 
+    </div>
+     </form>
+    </mat-card>
+    </div>
+    

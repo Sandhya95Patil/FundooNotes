@@ -130,11 +130,49 @@
 </button>
 </div>
 <!-----------------**************More option***************---------------->
-<div fxFlex="16"fxFlex.md="8">
-  <button mat-icon-button>
+<!-- <div fxFlex="16"fxFlex.md="8">
+  <button mat-icon-button [matMenuTriggerFor]="moremenu">
       <mat-icon class="color" matTooltip="More">more_vert</mat-icon>
+      <mat-menu #moremenu="matMenu">
+      <button *ngIf="isTrash" mat-menu-item (click)="deleteForeverNote()">
+       <span>Delete Note</span> 
+      </button>
+    </mat-menu>
   </button>
-</div>
+</div> -->
+<button mat-icon-button [matMenuTriggerFor]="moremenu" matTooltip="More">
+<mat-icon >more_vert</mat-icon>
+<mat-menu #moremenu="matMenu">
+  <button  mat-menu-item (click)="deleteForeverNote()">Delete Forever</button>
+  <button mat-menu-item (click)="unTrashNote()">Restore</button>
+  <button mat-menu-item (click)="trashNote()">Delete Note</button>
+  <button mat-menu-item [matMenuTriggerFor]="fish">Add Label</button>
+  <div *ngIf="tickBox==false">
+    <button mat-menu-item (click)="changeTickBoxValue(card)">Show checkList</button>
+  </div>
+  <div *ngIf="tickBox==true">
+      <button mat-menu-item (click)="changeTickBoxValue(card)">Hide checkList</button>
+    </div>
+  </mat-menu>
+<mat-menu #fish="matMenu">
+  <div mat-dialog-content>
+    <button mat-button (click)="$event.stopPropagation()" *ngIf="value">
+      <mat-icon>close</mat-icon>
+    </button>
+    <mat-form-field class="form-field" (click)="$event.stopPropagation()">
+      <input matInput type="text" placeholder="Create label" [(ngModel)]="labelText">
+    </mat-form-field>
+  </div>
+  <div>
+    <div *ngFor="let label of allLabel | searchpipe: labelText">
+      <mat-checkbox (click)="$event.stopPropagation()" 
+       (click)="addLabelToNote(label,card)">{{label.label}}</mat-checkbox>
+    </div>
+  </div>
+
+  </mat-menu>
+
+</button>
 
 <!-- <mat-menu #menu="matMenu">
         <div fxLayout ='row' fxFlex="60" *ngFor="let color of colors">

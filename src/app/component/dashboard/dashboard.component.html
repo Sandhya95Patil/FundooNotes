@@ -23,9 +23,9 @@
       </div>
 
 
-      <div class="search" fxFlex.md='35' fxFlex='45' fxFlexOffset='14' fxFlexOffset.sm='12'>
+      <div class="search" fxFlex.md='35' fxFlex='45'>
           <!-- <span fxShow fxHide.xs fxShow fxHide.xs class="example-spacer"></span> -->
-          <mat-form-field [style.fontSize.px]="12" fxShow fxHide.xs fxShow fxHide.xs appearance="outline"
+          <mat-form-field [style.fontSize.px]="12"   appearance="outline"
             routerLink="search"  fxFlex="60" fxFlex.md="50" fxFlex.xs="50">
             <button mat-icon-button matSuffix fxFlex.xs="50" matTooltip="Search">
               <mat-icon matPrefix>search</mat-icon>
@@ -34,18 +34,18 @@
           </mat-form-field>
         </div>
   
-        <div fxShow fxShow.xs fxHide><button mat-icon-button matSuffix fxFlex.xs="50" matTooltip="Search">
+        <!-- <div fxShow fxShow.xs fxHide><button mat-icon-button matSuffix fxFlex.xs="50" matTooltip="Search">
             <mat-icon matPrefix (click)="searchVisible()">search</mat-icon>
-          </button> </div>
-        <div *ngIf="searchInput==true" fxFlex.md='35' fxFlex='45' fxFlexOffset='14' fxFlexOffset.sm='12' fxHide.xs='true'>
+          </button> </div> -->
+        <!-- <div *ngIf="searchInput==true" fxFlex.md='35' fxFlex='45' fxFlexOffset='14' fxFlexOffset.sm='12' fxHide.xs='true'>
           <mat-form-field appearance="outline" [style.fontSize.px]=12>
   
             <input matInput placeholder="search" class="place" [(ngModel)]="title" (keyup)="searchNotes($event)"
               autocomplete="off">
-            <!-- <mat-icon matPrefix>search</mat-icon> -->
+            <mat-icon matPrefix>search</mat-icon>
   
           </mat-form-field>
-        </div>
+        </div> -->
 
 
 
@@ -65,15 +65,14 @@
               </button>
             </div> -->
   
-            <div fxFlex="25" fxShow fxHide.xs fxShow fxHide.xs>
-                <button mat-icon-button style="margin-top:10px;margin-left: 100px; outline: none;" class="materialicons" *ngIf=!list
-                  (click)=View() matTooltip="List view" fxShow="true">
-                  <i class="material-icons">
-                    view_stream</i>
+            <div fxFlex="25" fxShow fxHide.xs fxShow fxHide.xs >
+                <button mat-icon-button style="margin-top:10px;margin-left: 100px; outline: none;" 
+                class="materialicons" *ngIf=!list  (click)=View() matTooltip="List view" fxShow="true">
+                  <i >view_stream</i>
                 </button>
                 <button fxShow fxHide.xs fxShow fxHide.xs mat-icon-button style="margin-top:10px;margin-left: 100px; outline: none;"
-                  class="materialicons" *ngIf=list (click)=View() matTooltip="Grid view" fxShow="true">
-                  <i class="material-icons">view_module</i>
+                   *ngIf=list (click)=View() matTooltip="Grid view" fxShow="true">
+                  <i>view_module</i>
                 </button>
               </div>
               <div>

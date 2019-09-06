@@ -11,6 +11,8 @@ export class IconComponent implements OnInit {
   dateTime;
   value;
   labelText;
+  tickBox=true;
+  allLabel=[];
   todayDate;
   @Input() notesforiconchild   
   @Input() isTrash
@@ -23,7 +25,7 @@ export class IconComponent implements OnInit {
   @Output() onChangeLabel=new EventEmitter();
   @Output() labelToNote=new EventEmitter();
   @Output() noteTrash=new EventEmitter();
-  
+  @Output() childObject= new EventEmitter();
 
 
 
@@ -211,4 +213,100 @@ console.log('error in archive ',error)
      console.log(error)
    }
  }
+/**@description: this method is for delete note forever */
+deleteForeverNote(){
+  try{
+    let data={
+      noteIdList:[this.notesforiconchild.id],
+      isDeleted:false
+    }
+    console.log('delete forever',data);
+    this.noteService.deleteForever(data).subscribe(response=>{
+      console.log('res',response)
+      this.snackBar.open('Note deleted forever successfully..','',{
+        duration:1000
+      })
+    },error=>{
+      console.log('error',error)
+     })
+  }catch(error){
+    console.log
+  }
+}
+/**@description: This method is for restore note from trash note */
+unTrashNote(){
+  try{
+    let data={
+      noteIdList:[this.notesforiconchild.id],
+      isDeleted:false
+    }
+    console.log('data',data);
+    this.noteService.deleteNote(data).subscribe(response=>{
+      console.log('response',response);
+      this.snackBar.open('Note deleted successfully','',{
+        duration:1000
+      })
+
+    },error=>{
+      console.log('error',error)
+    })
+  }catch(error)
+  {
+    console.log(error)
+  }
+}
+/**@description: This method is for move note to trash */
+trashNote(){
+  try{
+    let data={
+      noteIdList:[this.notesforiconchild.id],
+      isDeleted:this.isDeleted
+    }
+    console.log(' trash data',data)
+    this.noteService.deleteNote(data).subscribe(response=>{
+      console.log('response',response)
+      this.snackBar.open('Note deleted successfully','',{
+        duration:1000
+      })
+
+    },error=>{
+      console.log('error',error)
+    })
+  }catch(error){
+    console.log(error)
+  }
+}
+/**@description: this method is for show & hide tick box*/
+changeTickBoxValue(item){
+  this.tickBox=!this.tickBox;
+  var object={
+    type:'tickBox',
+    item:item
+  }
+  this.childObject.emit(object)
+}
+addLabelToNote(label,carditem){
+ if(carditem==undefined)
+ {
+   this.onChangeLabel.emit(label)
+ } 
+ else{
+   console.log('note label called',label.id);
+   console.log('card',this.notesforiconchild.id);
+   var data={
+     noteIdList:[this.notesforiconchild.id],
+     labelId:label.id
+   }
+   console.log('data i data',data)
+   this.noteService.addLabelToNote(data).subscribe(response=>{
+     console.log('response',response)
+     this.snackBar.open('Label added successfully','',{
+       duration:1000
+     })
+   },error=>{
+     console.log('error ',error)
+   })
+ }
+}
+
 }

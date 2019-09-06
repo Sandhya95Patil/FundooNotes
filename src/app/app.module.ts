@@ -35,6 +35,11 @@ import {MatDatepickerModule,MatNativeDateModule} from '@angular/material';
 import { ArchiveComponent } from './component/archive/archive.component';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatChipsModule} from '@angular/material/chips';
+import { LabelComponent } from './component/label/label.component';
+import { TrashComponent } from './component/trash/trash.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import { SearchpipePipe } from './pipe/searchpipe.pipe';
+
 
 
 
@@ -55,6 +60,9 @@ import {MatChipsModule} from '@angular/material/chips';
     ReminderComponent,
     SearchnoteComponent,
     ArchiveComponent,
+    LabelComponent,
+    TrashComponent,
+    SearchpipePipe,
   ],
   imports: [
     BrowserModule,
@@ -83,7 +91,8 @@ import {MatChipsModule} from '@angular/material/chips';
    MatNativeDateModule ,
 MatSnackBarModule,
 MatTooltipModule,
-MatChipsModule
+MatChipsModule,
+MatCheckboxModule
  
    
    

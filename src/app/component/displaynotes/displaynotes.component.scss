@@ -17,4 +17,16 @@ flex-wrap: wrap;
 
 
 }   
+gridView {
+    // display: flex;
+    display: flex;
+    flex-direction: row;
+    flex-flow: wrap;
+    width: 100%;
+    .matCard {
+      width: 240px;
+    }
+  
+    //  padding: 18px;
+  }
     
