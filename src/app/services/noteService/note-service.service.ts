@@ -40,6 +40,10 @@ export class NoteServiceService {
   getArchiveNotesList(){
     return this.httpservice.getNotes('/notes/getArchiveNotesList')
   }
+  /**@description: this method is for get trash note list */
+  getTrashNoteList(){
+    return this.httpservice.getNotes('/notes/getTrashNotesList')
+  }
   /**@description: This method is for Archive note */
   archiveNote(data){
     return this.httpservice.postAth('/notes/archiveNotes',data);
