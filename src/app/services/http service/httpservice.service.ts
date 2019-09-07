@@ -10,7 +10,7 @@ export class HttpserviceService {
 post(url, data) {
     let options = {
       headers: new HttpHeaders({
-        'Authorization': localStorage.getItem('token'),
+       // 'Authorization': localStorage.getItem('token'),
         'Content-Type': 'application/json'
       })
     }

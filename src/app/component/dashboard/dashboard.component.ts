@@ -4,6 +4,7 @@ import {ChangeDetectorRef} from '@angular/core';
 import { Router } from '@angular/router';
 import { DataserviceService } from "../../services/dataservice/dataservice.service";
 import { NoteServiceService } from "../../services/noteService/note-service.service";
+import { UserService } from "../../services/user service/user.service";
 //import { SetprofileComponent } from "../setprofile/setprofile.component";
 import { MatDialog } from '@angular/material';
 @Component({
@@ -25,7 +26,7 @@ export class DashboardComponent implements OnInit {
   private _mobileQueryListener: () => void;
 
   constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher,private router:Router,
-    private dataService:DataserviceService,private noteService:NoteServiceService,public dialog:MatDialog) {
+    private dataService:DataserviceService,private noteService:NoteServiceService,private userService:UserService ,public dialog:MatDialog) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
@@ -116,4 +117,13 @@ getLabelList() {
        data: this.isList
      });
 }
+/**@description: This method is for logout the account it will all the local storage data  */
+logout()
+{
+  this.userService.logoutUser();
+  localStorage.clear();
+  console.log('User logout')
+  this.router.navigate(['/login']);
 }
+}
+

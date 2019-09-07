@@ -22,5 +22,9 @@ export class UserService {
   reset(user){
     return this.httpservice.encodedPost('/reset-password',user)
   }
+  logoutUser()
+  {
+    return this.httpservice.post('/user/logout',{});
+  }
 }
 
