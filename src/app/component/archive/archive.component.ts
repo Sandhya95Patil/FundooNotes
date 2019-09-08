@@ -14,7 +14,7 @@ export class ArchiveComponent implements OnInit {
   constructor(private noteService:NoteServiceService) { }
 
   ngOnInit() {
-    this.getArchiveNote();
+    this.getArchiveNoteList();
   }
 
    /**
@@ -22,7 +22,7 @@ export class ArchiveComponent implements OnInit {
     *                component
     * @param      : notes Array
     */
-   getArchiveNote() {
+   getArchiveNoteList() {
     this.pinedArray = [];
     this.unpinedArray = []
     this.noteService.getArchiveNotesList().subscribe(response => {

@@ -15,17 +15,18 @@ export class IconComponent implements OnInit {
   allLabel=[];
   todayDate;
   @Input() notesforiconchild   
-  @Input() isTrash
-  @Input() isArchive 
-  @Input() isTakeNote
-  isArchived=true
-  isDeleted=true
+  // @Input() isTrash
+  // @Input() isArchive 
+  // @Input() isTakeNote
+   isArchived=true
+   isDeleted=true
   //@Output() setcolorEvent = new EventEmitter();
   @Output() onArchiveChange=new EventEmitter();
   @Output() onChangeLabel=new EventEmitter();
-  @Output() labelToNote=new EventEmitter();
-  @Output() noteTrash=new EventEmitter();
+  // @Output() labelToNote=new EventEmitter();
+  // @Output() noteTrash=new EventEmitter();
   @Output() childObject= new EventEmitter();
+  
 
 
 
@@ -76,9 +77,9 @@ setReminder(){
   {
  console.log('add reminder',this.notesforiconchild.reminder[0]=today)
      let object={
-      "noteIdList":[this.notesforiconchild.id],
-      "reminder":[today],
-         "type":"reminder"
+      noteIdList:[this.notesforiconchild.id],
+      reminder:[today],
+         type:"reminder"
   }
   console.log('reminder',object)
     this.noteService.setReminder(object).subscribe(response => {
@@ -97,9 +98,6 @@ setReminder(){
  console.log("Today date ", this.date)
   this.todayDate = {
     reminder: [this.date],
-    isPined: false,
-    isArchived: false,
-    isDeleted: false,
     noteIdList: [this.notesforiconchild.id],
     userId: localStorage.getItem('userId')
   };
@@ -121,9 +119,6 @@ setReminder(){
  console.log('Tommorrow date',tomorrow)
   this.todayDate = {
     reminder: [tomm],
-    isPined: false,
-    isArchived: false,
-    isDeleted: false,
     noteIdList: [this.notesforiconchild.id],
     userId: localStorage.getItem('userId')
   };

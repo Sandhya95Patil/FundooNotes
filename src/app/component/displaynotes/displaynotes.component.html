@@ -1,5 +1,5 @@
 <div fxFlex="30" fxFlexOffset="35" fxLayout="row" fxLayoutGap="32px" class="card">
-    <mat-card *ngFor="let notes of getchildMessage" fxFlex="100" [style.background-color]="notes.color" >
+    <mat-card *ngFor="let notes of getchildMessage" fxFlex="80" [style.background-color]="notes.color" >
         <div>
                <div  (click)="openDialog(notes)">
                     <div>
@@ -11,7 +11,7 @@
                     </div><br>
                </div>
                <div>
-                <app-icon [notesforiconchild]=notes></app-icon>
+                <app-icon [notesforiconchild]=notes ></app-icon>
                </div> 
         </div>
     </mat-card>

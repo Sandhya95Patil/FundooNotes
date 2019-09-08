@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { notes } from "../../model/addNote";
 import { NoteServiceService } from "../../services/noteService/note-service.service";
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import {MatSnackBar} from '@angular/material/snack-bar';
+
 
 @Component({
   selector: 'app-take-note',
@@ -10,7 +12,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class TakeNoteComponent implements OnInit {
   public addnoteForm: FormGroup
-  constructor(private noteService: NoteServiceService) { }
+  constructor(private noteService: NoteServiceService,private snackBar:MatSnackBar) { }
 
   ngOnInit() {
     this.addnoteForm = new FormGroup({
@@ -36,6 +38,9 @@ export class TakeNoteComponent implements OnInit {
     this.addnoteForm.reset();
     this.noteService.addNote(notes).subscribe(response => {
       console.log(" reponse ", response);
+      this.snackBar.open('Note added successfully','',{
+        duration:1000
+      })
 
     }, error => {
       console.log(error);

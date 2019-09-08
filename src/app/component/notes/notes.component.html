@@ -1,4 +1,5 @@
 <app-take-note></app-take-note>
-<app-displaynotes [getchildMessage]=" parentMessage"  >
+<app-displaynotes [getchildMessage]=" parentMessage" (onArchiveChange)="getNotes()" 
+(onChangeLabel)="getNotes()" (childObject)="getNotes()">
 </app-displaynotes> 
 

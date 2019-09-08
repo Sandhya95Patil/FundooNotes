@@ -15,6 +15,9 @@ unpinedArray=[];
   ngOnInit() {
     this.getTrashNotes();
   }
+  getTrashNote(){
+    this.getTrashNotes();
+  }
 getTrashNotes(){
   try{
     this.noteService.getTrashNoteList().subscribe(response=>{

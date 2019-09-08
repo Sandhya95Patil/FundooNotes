@@ -15,6 +15,7 @@ labels:boolean
     var reminderNoteList=this.reminderNoteList();
 console.log('reminder note list',reminderNoteList)
   }
+  /*** @description: This method is for reminder note list */
   reminderNoteList() {
     try {
      

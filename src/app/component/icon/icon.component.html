@@ -34,7 +34,7 @@
                               <div class="date" fxLayout="row" class="noteReminder" (click)="nextWeekMonday()"
                                 fxLayoutAlign="space-around center">
                                 <div>Next Week</div>
-                                <div>Mon 8:am</div>
+                                <div>8:am</div>
                                 <!-- <label  >Next week</label>
                               <label >Mon 8:pm </label> -->
                               </div>
@@ -140,22 +140,43 @@
     </mat-menu>
   </button>
 </div> -->
+<div fxFlex="16" fxFlex.md="8">
 <button mat-icon-button [matMenuTriggerFor]="moremenu" matTooltip="More">
 <mat-icon >more_vert</mat-icon>
 <mat-menu #moremenu="matMenu">
   <button  mat-menu-item (click)="deleteForeverNote()">Delete Forever</button>
   <button mat-menu-item (click)="unTrashNote()">Restore</button>
   <button mat-menu-item (click)="trashNote()">Delete Note</button>
-  <button mat-menu-item [matMenuTriggerFor]="fish">Add Label</button>
-  <div *ngIf="tickBox==false">
+  <button mat-menu-item [matMenuTriggerFor]="fish" >Add Label</button>
+  <!-- <div *ngIf="tickBox==false">
     <button mat-menu-item (click)="changeTickBoxValue(card)">Show checkList</button>
   </div>
   <div *ngIf="tickBox==true">
       <button mat-menu-item (click)="changeTickBoxValue(card)">Hide checkList</button>
-    </div>
+    </div> -->
   </mat-menu>
 <mat-menu #fish="matMenu">
-  <div mat-dialog-content>
+
+
+    <mat-card>
+        <mat-card-content>
+          <label>Label name</label>
+          <mat-form-field class="form-field" (click)="$event.stopPropagation()">
+              <input matInput type="text" placeholder="Create label" [(ngModel)]="labelText">
+            </mat-form-field>
+            
+            <div>
+                <div *ngFor="let label of allLabel | searchpipe: labelText">
+                  <mat-checkbox (click)="addLabelToNote(label,card)">
+                    {{label.label}}</mat-checkbox>
+                </div>
+              </div>
+
+
+        </mat-card-content>
+      </mat-card>
+
+  <!-- <div mat-dialog-content>
     <button mat-button (click)="$event.stopPropagation()" *ngIf="value">
       <mat-icon>close</mat-icon>
     </button>
@@ -168,11 +189,12 @@
       <mat-checkbox (click)="$event.stopPropagation()" 
        (click)="addLabelToNote(label,card)">{{label.label}}</mat-checkbox>
     </div>
-  </div>
+  </div> -->
 
   </mat-menu>
 
 </button>
+</div>
 
 <!-- <mat-menu #menu="matMenu">
         <div fxLayout ='row' fxFlex="60" *ngFor="let color of colors">

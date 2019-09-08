@@ -31,4 +31,5 @@ openDialog(notes) {
   //   console.log('event in display',event);
   //  this.setcolorEvent=event; 
   // }
+
 }
