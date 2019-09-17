@@ -4,16 +4,16 @@ import { BehaviorSubject , Subject} from 'rxjs';
   providedIn: 'root'
 })
 export class DataserviceService {
+  
+ /**  @description: This data service for search note*/
   private noteSource = new BehaviorSubject({data:'', type:''});
   currentNote = this.noteSource.asObservable();
   constructor() { }
-
-  
   searchNotes(search:any){
     console.log('search note',search);
     this.noteSource.next(search)
   }
-   /* Required for Grid*/
+   /** @description:  Required for Grid & list view */
    result: boolean = true;
    subject = new Subject
  
@@ -33,21 +33,18 @@ export class DataserviceService {
      this.gridView();
      return this.subject.asObservable();
    }
- 
- 
-   
-   private arrayData = new BehaviorSubject({ type: '', data: [] });
-   currentData = this.arrayData.asObservable();
-   changeData(message: any) {
-     // console.log(" data service called", message);
-     this.arrayData.next(message)
-   }
- 
    private listData = new BehaviorSubject([]);
    viewListData = this.listData.asObservable();
    listViewData(message) {
      console.log(" data service called", message);
      this.listData.next(message)
    }
- 
+
+/** @description: This method is for get label */
+    private arrayData = new BehaviorSubject({ type: '', data: [] });
+   currentData = this.arrayData.asObservable();
+   changeData(message: any) {
+     // console.log(" data service called", message);
+     this.arrayData.next(message)
+   }
 }

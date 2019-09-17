@@ -4,14 +4,15 @@
           <input matInput [(ngModel)]=data.notes.title class="input" placeholder="Title">
       </div>
        <div fxLayout="row" class="input">
-          <textarea  class="input" style="border: none" [(ngModel)]=data.notes.description ></textarea>
+          <textarea cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="auto"
+          cdkAutosizeMinColumns="auto" cdkAutosizeMaxRows="auto" class="input" style="border: none" [(ngModel)]=data.notes.description ></textarea>
        </div>
         <div fxLayout="row">
           <div fxFlex="70">
               <app-icon></app-icon>
           </div>
           <div flex="row" fxFlex="30">
-    <button class="close" mat-raised-button (click)=" onNoClick()" (click)="updateNotes(data)"> close</button>
+    <button class="close" mat-raised-button (click)="onNoClick()" (click)="updateNotes(data)"> close</button>
           </div>
            
         </div> 

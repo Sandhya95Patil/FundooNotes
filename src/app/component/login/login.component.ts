@@ -4,7 +4,8 @@ import { Router } from '@angular/router';
 import { UserService  } from "../../services/user service/user.service";
 import { User } from "../../model/UserLogin";
 import {MatSnackBar} from '@angular/material/snack-bar';
-//import { ValueConverter } from '@angular/compiler/src/render3/view/template';
+//import {  CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+
 
 @Component({
   selector: 'app-login',
@@ -20,6 +21,7 @@ export class LoginComponent implements OnInit {
     this.router.navigate(['/forget']);  // define your component where you want to go
     
 };
+
 
 gotoRegister(){
   this.router.navigate(['/register']);

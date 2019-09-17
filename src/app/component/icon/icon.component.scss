@@ -76,5 +76,19 @@ text-align: right;
   .img{
     color:gray;
   }
+  ::ng-deep .element.style {
+      box-sizing: content-box;
+    max-width: fit-content;
+  }
+  .label{
+    padding-left: initial;
+  }
+  .textlabel{
+    padding-left: 1.5;
+    border:none;
+  }
+  ::ng-deep.mat-card-actions, .mat-card-content, .mat-card-subtitle{
+    margin-left: 1.5rem;
+  }
 
 

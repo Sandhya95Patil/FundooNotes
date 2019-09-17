@@ -1,5 +1,5 @@
    <div  fxLayout="row">
-     <div fxFlex=100 fxFlex.xs=80 fxLayout=row fxLayoutGap=2.5% fxLayoutGap.xs=5%>
+     <div fxFlex=100 fxFlex.xs=80 fxLayout=row fxLayoutGap=3% fxLayoutGap.xs=5%>
    <!---------------------*****Set Reminder*******-------------------------->
    <div fxFlex="16" fxFlex.md="8">
     <button class="reminder" mat-icon-button [matMenuTriggerFor]="remindermenu" matTooltip="Remind me">
@@ -41,7 +41,7 @@
                             </div>
                             <button mat-menu-item [matMenuTriggerFor]="datepicker">
                               <mat-icon>access_time</mat-icon>
-                              <span>Pick Date & Time</span>
+                              <span style="padding-left:0px">Pick Date & Time</span>
                             </button>
                           </div>
                         </mat-menu>
@@ -147,62 +147,37 @@
   <button  mat-menu-item (click)="deleteForeverNote()">Delete Forever</button>
   <button mat-menu-item (click)="unTrashNote()">Restore</button>
   <button mat-menu-item (click)="trashNote()">Delete Note</button>
-  <button mat-menu-item [matMenuTriggerFor]="fish" >Add Label</button>
-  <!-- <div *ngIf="tickBox==false">
-    <button mat-menu-item (click)="changeTickBoxValue(card)">Show checkList</button>
-  </div>
-  <div *ngIf="tickBox==true">
-      <button mat-menu-item (click)="changeTickBoxValue(card)">Hide checkList</button>
-    </div> -->
+  <button mat-menu-item [matMenuTriggerFor]="label" >Add Label</button>
+  
   </mat-menu>
-<mat-menu #fish="matMenu">
+<mat-menu #label="matMenu">
 
 
-    <mat-card>
+    
         <mat-card-content>
-          <label>Label name</label>
-          <mat-form-field class="form-field" (click)="$event.stopPropagation()">
-              <input matInput type="text" placeholder="Create label" [(ngModel)]="labelText">
+          <label class="label">Label name</label>
+          <br>
+          <mat-form-field >
+              <input matInput type="text" class="textlabel" placeholder="Enter label name" [(ngModel)]="labelText">
             </mat-form-field>
+            <br>
+            <mat-checkbox (click)="addLabelToNote(label)" >
+              <label>label</label> 
+            </mat-checkbox>
+          
             
-            <div>
-                <div *ngFor="let label of allLabel | searchpipe: labelText">
-                  <mat-checkbox (click)="addLabelToNote(label,card)">
-                    {{label.label}}</mat-checkbox>
-                </div>
-              </div>
 
 
         </mat-card-content>
-      </mat-card>
+      
 
-  <!-- <div mat-dialog-content>
-    <button mat-button (click)="$event.stopPropagation()" *ngIf="value">
-      <mat-icon>close</mat-icon>
-    </button>
-    <mat-form-field class="form-field" (click)="$event.stopPropagation()">
-      <input matInput type="text" placeholder="Create label" [(ngModel)]="labelText">
-    </mat-form-field>
-  </div>
-  <div>
-    <div *ngFor="let label of allLabel | searchpipe: labelText">
-      <mat-checkbox (click)="$event.stopPropagation()" 
-       (click)="addLabelToNote(label,card)">{{label.label}}</mat-checkbox>
-    </div>
-  </div> -->
-
+  
   </mat-menu>
 
 </button>
 </div>
 
-<!-- <mat-menu #menu="matMenu">
-        <div fxLayout ='row' fxFlex="60" *ngFor="let color of colors">
-            <div *ngFor="let bgcolor of color">
-                <div class="colorPicker" (click)="setcolor(bgcolor.color)" [ngStyle]="{'background-color': bgcolor.color }"></div>
-            </div>
-        </div>
-    </mat-menu> -->
+
 
 </div>
 </div>

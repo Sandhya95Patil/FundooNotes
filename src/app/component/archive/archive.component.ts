@@ -7,8 +7,7 @@ import { NoteServiceService } from "../../services/noteService/note-service.serv
 })
 export class ArchiveComponent implements OnInit {
   notes=[];
-  pinedArray=[];
-  unpinedArray=[];
+  
 
 
   constructor(private noteService:NoteServiceService) { }
@@ -23,8 +22,7 @@ export class ArchiveComponent implements OnInit {
     * @param      : notes Array
     */
    getArchiveNoteList() {
-    this.pinedArray = [];
-    this.unpinedArray = []
+  
     this.noteService.getArchiveNotesList().subscribe(response => {
       console.log('response ', response['data'].data);
       this.notes = response['data'].data

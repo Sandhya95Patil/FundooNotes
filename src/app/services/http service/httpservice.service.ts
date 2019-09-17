@@ -25,6 +25,16 @@ post(url, data) {
     }
     return formBody.join('&');
   }
+ 
+  encodedPost(url, data) {
+    let options = {
+      headers: new HttpHeaders({
+        'Authorization': localStorage.getItem('token'),
+        'Content-Type': 'application/x-www-form-urlencoded'
+      })
+    }
+    return this.http.post(this.baseUrl + url, this.encode(data), options)
+  }
   postAth(url,data){
     console.log('post ath ',url,data)
     var options={
@@ -34,15 +44,6 @@ post(url, data) {
       })
     }
     return this.http.post(this.baseUrl + url, data, options)
-  }
-  encodedPost(url, data) {
-    let options = {
-      headers: new HttpHeaders({
-        'Authorization': localStorage.getItem('token'),
-        'Content-Type': 'application/x-www-form-urlencoded'
-      })
-    }
-    return this.http.post(this.baseUrl + url, this.encode(data), options)
   }
   get(url){
     let options = {

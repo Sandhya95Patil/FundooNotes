@@ -15,19 +15,11 @@ export class IconComponent implements OnInit {
   allLabel=[];
   todayDate;
   @Input() notesforiconchild   
-  // @Input() isTrash
-  // @Input() isArchive 
-  // @Input() isTakeNote
    isArchived=true
    isDeleted=true
-  //@Output() setcolorEvent = new EventEmitter();
   @Output() onArchiveChange=new EventEmitter();
-  @Output() onChangeLabel=new EventEmitter();
-  // @Output() labelToNote=new EventEmitter();
-  // @Output() noteTrash=new EventEmitter();
   @Output() childObject= new EventEmitter();
   
-
 
 
 
@@ -151,9 +143,6 @@ setReminder(){
  console.log(" next week Monday ", monday);
   this.todayDate = {
     reminder: [monday],
-    isPined: false,
-    isArchived: false,
-    isDeleted: false,
     noteIdList: [this.notesforiconchild.id],
     userId: localStorage.getItem('userId')
   };
@@ -196,6 +185,7 @@ console.log('error in archive ',error)
        isArchived:false
      }
      this.noteService.archiveNote(data).subscribe(response=>{
+       console.log('response',response)
        this.onArchiveChange.emit();
        this.snackBar.open('Unarchive note','',{
          duration:1000
@@ -271,37 +261,24 @@ trashNote(){
     console.log(error)
   }
 }
-/**@description: this method is for show & hide tick box*/
-changeTickBoxValue(item){
-  this.tickBox=!this.tickBox;
-  var object={
-    type:'tickBox',
-    item:item
+addLabelToNote(label){
+  
+    let data={
+      noteId:[this.notesforiconchild.id],
+      labelId:this.notesforiconchild.label.id
+    }
+console.log("data",data)
+this.noteService.addLabelToNote(data).subscribe(response=>{
+  console.log('response of add label to note',response)
+},error=>{
+  console.log(error)
+})
   }
-  this.childObject.emit(object)
-}
-addLabelToNote(label,carditem){
- if(carditem==undefined)
- {
-   this.onChangeLabel.emit(label)
- } 
- else{
-   console.log('note label called',label.id);
-   console.log('card',this.notesforiconchild.id);
-   var data={
-     noteIdList:[this.notesforiconchild.id],
-     labelId:label.id
-   }
-   console.log('data i data',data)
-   this.noteService.addLabelToNote(data).subscribe(response=>{
-     console.log('response',response)
-     this.snackBar.open('Label added successfully','',{
-       duration:1000
-     })
-   },error=>{
-     console.log('error ',error)
-   })
- }
-}
 
-}
+   
+
+ }
+  
+
+
+

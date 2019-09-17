@@ -136,7 +136,7 @@ width: 100%;
 .toolbar{
   color:gray;
 }
-::deep.menu {
+::ng-deep.menu {
   font-size: 18;
 }
 .avatar-flair {
@@ -175,4 +175,19 @@ width: 100%;
 }
 ::ng-deep.element.style {
   margin-left: 14px;
+}
+.gridView {
+    
+  display: flex;
+  flex-direction: row;
+  flex-flow: wrap;
+  width: 60%;
+
+  //  padding: 18px;
+}
+.listView{
+display: flex;
+flex-direction: column;
+width: 100%;
+
 }

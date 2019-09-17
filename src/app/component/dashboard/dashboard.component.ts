@@ -32,13 +32,13 @@ export class DashboardComponent implements OnInit {
     this.mobileQuery.addListener(this._mobileQueryListener);
   }
   allLabel = [];
-  isList;
   localstorage_image:any
   imageurl:string
   fname;
   lname;
   email;
-  username
+  username;
+  isList:any
   view:any
   grid:any
   list:any
@@ -50,6 +50,7 @@ gotoLogin(){
     this.mobileQuery.removeListener(this._mobileQueryListener);
     //this.getLabelList() ;
     this.list = localStorage.getItem('isListView')
+  //  this.grid = localStorage.getItem('gridview')
     //this.changeProfilePic();
     this.fname=localStorage.getItem('firstName');
     this.lname=localStorage.getItem('lastName');
@@ -101,7 +102,7 @@ getLabelList() {
 
   }
 }
-  /************************ Grid and List View *********************/
+  /**@description: This method is for grid list view based on true or false */
   
    View() 
    {

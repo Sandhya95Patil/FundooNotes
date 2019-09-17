@@ -25,12 +25,13 @@
                          </div>
             </div>
            
-        <div *ngIf="!isOpen " >
+        <div *ngIf="!isOpen " fxFlex="100">
           <div fxLayout="column">
-               <input matInput type="text" fxFlex="10"  class="input"  formControlName="title" placeholder="Title">
+               <input matInput  type="text" fxFlex="10"  class="input"  formControlName="title" placeholder="Title">
           </div>
       <div fxLayout="column" class="textarea">
-            <textarea style="border: none"  placeholder="Take a note.."  formControlName="description"></textarea>
+            <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="auto"
+            cdkAutosizeMinColumns="auto" cdkAutosizeMaxRows="auto"  style="border: none"  placeholder="Take a note.."  formControlName="description"></textarea>
      </div>
      <div fxLayout="row">
             <div fxFlex="80">

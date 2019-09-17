@@ -18,8 +18,10 @@ flex-wrap: wrap;
 
 
 }   
-gridView {
-    // display: flex;
+.listView{
+width: 100%;
+}
+.gridView {
     display: flex;
     flex-direction: row;
     flex-flow: wrap;
@@ -27,7 +29,8 @@ gridView {
     .matCard {
       width: 240px;
     }
-  
-    //  padding: 18px;
-  }
-    
+ }
+ ::ng-deep.element.style {
+ margin-bottom: 2rem;
+
+ }  

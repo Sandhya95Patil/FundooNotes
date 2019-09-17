@@ -9,9 +9,6 @@ import { NoteServiceService } from "../../services/noteService/note-service.serv
 })
 export class LabelComponent implements OnInit {
   notes=[];
-  pinedArray=[];
-  unpinedArray=[];
-  labels:any;
 
   constructor(private activeRouter:ActivatedRoute,private noteService:NoteServiceService) { }
 
@@ -25,8 +22,7 @@ getnoteByLabel(){
   var label=
   this.activeRouter.snapshot.paramMap.get('label');
 console.log('Label fom route',label)
-this.pinedArray=[];
-this.unpinedArray=[];
+
 try{
   this.noteService.getNoteByLabel(label).subscribe(response=>{
     this.notes=response['data'].data
